@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -28,7 +37,7 @@
         "title_GLajYQ": {
           "type": "title",
           "settings": {
-            "heading_size": "h4"
+            "heading_size": "h1"
           }
         },
         "price_XHwahC": {
@@ -40,16 +49,27 @@
             "price_size": "h2"
           }
         },
-        "inventory_nNrwhq": {
-          "type": "inventory",
+        "text_jqkd4C": {
+          "type": "text",
           "settings": {
-            "inventory": 2
+            "icon_width": 30,
+            "align_content": "align-items-center",
+            "icon_name_1": "Box",
+            "content_1": "<h6>Free Shipping on Orders Over $50</h6>",
+            "icon_name_2": "",
+            "content_2": "",
+            "icon_name_3": "",
+            "content_3": "",
+            "icon_name_4": "",
+            "content_4": "",
+            "icon_name_5": "",
+            "content_5": ""
           }
         },
         "description_j6ANqd": {
           "type": "description",
           "settings": {
-            "heading_text": "",
+            "heading_text": "Description",
             "icon_name": "",
             "heading_size": "h5",
             "description_property": "simple",
@@ -93,7 +113,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_quantity": true,
-            "button_type_product": "only_text",
+            "button_type_product": "show",
             "enable_sticky_addtocart": true,
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true,
@@ -140,7 +160,7 @@
         "information_DQTzTU",
         "title_GLajYQ",
         "price_XHwahC",
-        "inventory_nNrwhq",
+        "text_jqkd4C",
         "description_j6ANqd",
         "variant_picker_zYJKhL",
         "buy_buttons_exgEyk",
@@ -154,7 +174,7 @@
         "gallery_position": "to left",
         "default_variant": "select_variant",
         "enable_sticky_info": true,
-        "media_type": "columns_1",
+        "media_type": "thumbnails_vertical",
         "media_type_mobile": "thumbnails_horizontal",
         "image_zoom": "lightbox",
         "image_ratio": "auto"
@@ -171,8 +191,8 @@
         "heading_aligment": "text-center",
         "top_spacing": "normal",
         "width": "default",
-        "grid": "page-grid-md-6 page-grid-lg-6 page-grid-6",
-        "grid_tablet": "page-grid-st-3",
+        "grid": "page-grid-md-4 page-grid-lg-4 page-grid-4",
+        "grid_tablet": "page-grid-st-2",
         "mobile_grid": "2",
         "recommendation_type": "related",
         "swipe": true,

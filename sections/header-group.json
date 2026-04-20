@@ -1,1 +1,301 @@
-{"name":"Header","type":"header","sections":{"header_9GztDw":{"type":"header","name":"Header: Classic menu","settings":{"menu":"main-menu","width":"default","enable__sticky_header":"mobile__desktop","sticky_type":"always","logo_svg":"","logo_max_width":130,"logo_svg_mobile":"","logo_max_width_mobile":100,"menu_font_weight":"font-weight-normal","logo_position":"logo-to-left","classic_menu_position":"top-menu-to-center","show_search":"closed","icons_text":"tooltip","show_top_line":false,"show_bottom_line":false,"width_line":"default","background_width":"fullwidth","background":"color","color_background":"rgba(0,0,0,0)","gradient":"","imagealign":"center","imagesize":"cover","image_overlay_opacity":0,"image_overlay_color":"rgba(0,0,0,0)","color_base":"rgba(0,0,0,0)","color_accent":"rgba(0,0,0,0)","color_lines":"rgba(0,0,0,0)","color_menu_item":"rgba(0,0,0,0)","color_menu_item_hover":"rgba(0,0,0,0)","color_submenu_item":"#ffffff","color_submenu_item_hover":"#ffffff","color_submenu_background":"#333333","color_submenu_shadow":"rgba(0,0,0,0)","color_icons":"rgba(0,0,0,0)","color_icons_text":"rgba(0,0,0,0)","color_icons_hover":"rgba(0,0,0,0)","color_icons_text_hover":"rgba(0,0,0,0)","color_counter":"rgba(0,0,0,0)","color_counter_hover":"rgba(0,0,0,0)","color_counter_text":"rgba(0,0,0,0)","color_counter_text_hover":"rgba(0,0,0,0)","color_input_background":"rgba(0,0,0,0)","color_input_border":"rgba(0,0,0,0)","color_input_text":"rgba(0,0,0,0)","color_input_icon":"rgba(0,0,0,0)","color_input_background_hover":"rgba(0,0,0,0)","color_input_border_hover":"rgba(0,0,0,0)","color_input_outline_hover":"rgba(0,0,0,0)","color_input_text_hover":"rgba(0,0,0,0)","color_input_icon_hover":"rgba(0,0,0,0)","color_search_heading":"rgba(0,0,0,0)","color_search_link":"rgba(0,0,0,0)","color_search_link_hover":"rgba(0,0,0,0)","color_search_product_vendor":"rgba(0,0,0,0)","color_search_product_name":"rgba(0,0,0,0)","color_search_product_name_hover":"rgba(0,0,0,0)","color_search_product_price":"rgba(0,0,0,0)","color_search_product_price_sale":"rgba(0,0,0,0)","color_search_product_price_old":"rgba(0,0,0,0)","color_search_show_all":"rgba(0,0,0,0)","color_search_show_all_hover":"rgba(0,0,0,0)","color_search_lines":"rgba(0,0,0,0)","color_search_background":"rgba(0,0,0,0)","color_search_shadow":"rgba(0,0,0,0)"}},"popup_search_modules_XzFmdD":{"type":"popup-search-modules","blocks":{"banners_list_bM6QWm":{"type":"banners-list","name":"Banners","settings":{"main_heading":""},"blocks":{"banner_item_9dkECi":{"type":"banner-item","settings":{"content_type":"image","image":"","image_overlay_opacity":100,"image_overlay_fill":false,"video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","video_slide_mode":"autoplay_muted","url":"","heading_text":"$21","desc":"<p>Plates<\/p>","heading_after_description":true,"button_name":"","heading_size_px":40,"heading_size_px_tablet":40,"heading_size_px_mobile":40,"hover_underline":true,"position":"align-items-start","position_mobile":"align-items-start-m","text_align":"text-left","description_width":100,"description_width_tablet":100,"description_width_mobile":100,"show_background":false,"box_opacity":90,"heading_text_link":"#ffffff","heading_text_link_hover":"#ffffff","color_desc":"#ffffff","color_desc_hover":"#ffffff","show_button_bg":true,"color_button":"rgba(0,0,0,0)","color_button_gradient":"","color_button_border":"rgba(0,0,0,0)","color_button_text":"rgba(0,0,0,0)","show_button_bg_hover":true,"color_button_hover":"rgba(0,0,0,0)","color_button_gradient_hover":"","color_button_border_hover":"rgba(0,0,0,0)","color_button_text_hover":"rgba(0,0,0,0)","show_shadow_button":true,"color_shadow_button":"rgba(0,0,0,0)","color_shadow_hover_button":"rgba(0,0,0,0)","color_background_box":"rgba(0,0,0,0)","color_background_box_hover":"rgba(0,0,0,0)","color_media_background":"rgba(0,0,0,0)","color_media_icon":"rgba(0,0,0,0)","color_media_background_hover":"rgba(0,0,0,0)","color_media_icon_hover":"rgba(0,0,0,0)","image_overlay_color":"rgba(0,0,0,0)"},"blocks":{}},"banner_item_JqKQDp":{"type":"banner-item","settings":{"content_type":"image","image":"","image_overlay_opacity":100,"image_overlay_fill":false,"video_url":"https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc","video_slide_mode":"autoplay_muted","url":"","heading_text":"$17","desc":"<p>Bowls<\/p>","heading_after_description":true,"button_name":"","heading_size_px":40,"heading_size_px_tablet":40,"heading_size_px_mobile":40,"hover_underline":true,"position":"align-items-start","position_mobile":"align-items-start-m","text_align":"text-left","description_width":80,"description_width_tablet":80,"description_width_mobile":80,"show_background":false,"box_opacity":90,"heading_text_link":"#ffffff","heading_text_link_hover":"#ffffff","color_desc":"#ffffff","color_desc_hover":"#ffffff","show_button_bg":true,"color_button":"rgba(0,0,0,0)","color_button_gradient":"","color_button_border":"rgba(0,0,0,0)","color_button_text":"rgba(0,0,0,0)","show_button_bg_hover":true,"color_button_hover":"rgba(0,0,0,0)","color_button_gradient_hover":"","color_button_border_hover":"rgba(0,0,0,0)","color_button_text_hover":"rgba(0,0,0,0)","show_shadow_button":true,"color_shadow_button":"rgba(0,0,0,0)","color_shadow_hover_button":"rgba(0,0,0,0)","color_background_box":"rgba(0,0,0,0)","color_background_box_hover":"rgba(0,0,0,0)","color_media_background":"rgba(0,0,0,0)","color_media_icon":"rgba(0,0,0,0)","color_media_background_hover":"rgba(0,0,0,0)","color_media_icon_hover":"rgba(0,0,0,0)","image_overlay_color":"rgba(0,0,0,0)"},"blocks":{}}},"block_order":["banner_item_9dkECi","banner_item_JqKQDp"]}},"block_order":["banners_list_bM6QWm"],"name":"Search modules","settings":{"image_ratio_collection":"auto","text_align_collection":"text-center","hover_underline_collection":true,"show_products_count_collection":true,"image_ratio_product":"auto","product_limit":6,"text_align":"text-center","image_action":"show_secondary_image","hover_underline":true,"show_vendor":true,"show_price":true,"truncate_product_name":false,"enable_rating_product_card":true,"grid":"page-grid-2","grid_tablet":"page-grid-st-1","mobile_grid":"1","image_ratio":"auto","image_ratio_mobile":"auto","image_hover":"default","color_base":"rgba(0,0,0,0)","color_accent":"rgba(0,0,0,0)","color_search_main_heading":"rgba(0,0,0,0)","color_search_background":"rgba(0,0,0,0)","color_modal_overlay":"rgba(0,0,0,0)","color_search_close":"rgba(0,0,0,0)","color_search_input_background":"rgba(0,0,0,0)","color_search_input_border":"rgba(0,0,0,0)","color_search_input_text":"rgba(0,0,0,0)","color_search_input_icon":"rgba(0,0,0,0)","color_search_input_background_hover":"rgba(0,0,0,0)","color_search_input_border_hover":"rgba(0,0,0,0)","color_search_input_outline_hover":"rgba(0,0,0,0)","color_search_input_text_hover":"rgba(0,0,0,0)","color_search_input_icon_hover":"rgba(0,0,0,0)","color_search_heading":"rgba(0,0,0,0)","color_search_link":"rgba(0,0,0,0)","color_search_link_hover":"rgba(0,0,0,0)","color_search_product_vendor":"rgba(0,0,0,0)","color_search_product_name":"rgba(0,0,0,0)","color_search_product_name_hover":"rgba(0,0,0,0)","color_search_product_price":"rgba(0,0,0,0)","color_search_product_price_sale":"rgba(0,0,0,0)","color_search_product_price_old":"rgba(0,0,0,0)","color_search_show_all":"rgba(0,0,0,0)","color_search_show_all_hover":"rgba(0,0,0,0)","color_search_lines":"rgba(0,0,0,0)","color_active_rating":"rgba(0,0,0,0)","color_base_rating":"rgba(0,0,0,0)"}}},"order":["header_9GztDw","popup_search_modules_XzFmdD"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Header",
+  "type": "header",
+  "sections": {
+    "header_9GztDw": {
+      "type": "header",
+      "blocks": {
+        "mega_menu_7hAtMx": {
+          "type": "mega_menu",
+          "settings": {
+            "admin_open_megamenu": false,
+            "mega_menu_item_name": "Store",
+            "grid": "4",
+            "submenu_size": "default",
+            "group_items": true,
+            "image_hover": "default",
+            "image_ratio": "auto",
+            "color_heading": "rgba(0,0,0,0)",
+            "color_heading_hover": "rgba(0,0,0,0)",
+            "color_link": "rgba(0,0,0,0)",
+            "color_link_hover": "rgba(0,0,0,0)",
+            "color_background": "rgba(0,0,0,0)",
+            "color_shadow": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_7hAtMx"
+      ],
+      "name": "Header: Classic menu",
+      "settings": {
+        "menu": "main-menu",
+        "width": "default",
+        "enable__sticky_header": "mobile__desktop",
+        "sticky_type": "always",
+        "logo_svg": "",
+        "logo_max_width": 130,
+        "logo_svg_mobile": "",
+        "logo_max_width_mobile": 100,
+        "menu_font_weight": "font-weight-normal",
+        "logo_position": "logo-to-center",
+        "classic_menu_position": "top-menu-to-left",
+        "show_search": "opened",
+        "icons_text": "tooltip",
+        "show_top_line": false,
+        "show_bottom_line": false,
+        "width_line": "default",
+        "background_width": "fullwidth",
+        "background": "color",
+        "color_background": "rgba(0,0,0,0)",
+        "gradient": "",
+        "imagealign": "center",
+        "imagesize": "cover",
+        "image_overlay_opacity": 0,
+        "image_overlay_color": "rgba(0,0,0,0)",
+        "color_base": "rgba(0,0,0,0)",
+        "color_accent": "rgba(0,0,0,0)",
+        "color_lines": "rgba(0,0,0,0)",
+        "color_menu_item": "rgba(0,0,0,0)",
+        "color_menu_item_hover": "rgba(0,0,0,0)",
+        "color_submenu_item": "rgba(0,0,0,0)",
+        "color_submenu_item_hover": "rgba(0,0,0,0)",
+        "color_submenu_background": "rgba(0,0,0,0)",
+        "color_submenu_shadow": "rgba(0,0,0,0)",
+        "color_icons": "rgba(0,0,0,0)",
+        "color_icons_text": "rgba(0,0,0,0)",
+        "color_icons_hover": "rgba(0,0,0,0)",
+        "color_icons_text_hover": "rgba(0,0,0,0)",
+        "color_counter": "#005649",
+        "color_counter_hover": "rgba(0,0,0,0)",
+        "color_counter_text": "rgba(0,0,0,0)",
+        "color_counter_text_hover": "rgba(0,0,0,0)",
+        "color_input_background": "rgba(0,0,0,0)",
+        "color_input_border": "rgba(0,0,0,0)",
+        "color_input_text": "rgba(0,0,0,0)",
+        "color_input_icon": "rgba(0,0,0,0)",
+        "color_input_background_hover": "rgba(0,0,0,0)",
+        "color_input_border_hover": "rgba(0,0,0,0)",
+        "color_input_outline_hover": "rgba(0,0,0,0)",
+        "color_input_text_hover": "rgba(0,0,0,0)",
+        "color_input_icon_hover": "rgba(0,0,0,0)",
+        "color_search_heading": "rgba(0,0,0,0)",
+        "color_search_link": "rgba(0,0,0,0)",
+        "color_search_link_hover": "rgba(0,0,0,0)",
+        "color_search_product_vendor": "rgba(0,0,0,0)",
+        "color_search_product_name": "rgba(0,0,0,0)",
+        "color_search_product_name_hover": "rgba(0,0,0,0)",
+        "color_search_product_price": "rgba(0,0,0,0)",
+        "color_search_product_price_sale": "rgba(0,0,0,0)",
+        "color_search_product_price_old": "rgba(0,0,0,0)",
+        "color_search_show_all": "rgba(0,0,0,0)",
+        "color_search_show_all_hover": "rgba(0,0,0,0)",
+        "color_search_lines": "rgba(0,0,0,0)",
+        "color_search_background": "rgba(0,0,0,0)",
+        "color_search_shadow": "rgba(0,0,0,0)"
+      }
+    },
+    "megamenu_modules_YkjRpU": {
+      "type": "megamenu-modules",
+      "blocks": {
+        "megamenu_item_qJMRdV": {
+          "type": "megamenu-item",
+          "name": "Megamenu item",
+          "settings": {
+            "heading": "Store",
+            "heading_closed_menu": false
+          },
+          "blocks": {
+            "megamenu_fake_links_kzGGdH": {
+              "type": "megamenu-fake-links",
+              "settings": {},
+              "blocks": {}
+            },
+            "megamenu_banner_dPHFgG": {
+              "type": "megamenu-banner",
+              "name": "Banner",
+              "settings": {
+                "content_type": "image",
+                "image": "",
+                "image_ratio": "auto",
+                "roundness_type": "default",
+                "roundness": 20,
+                "image_overlay_opacity": 0,
+                "image_overlay_fill": false,
+                "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+                "video_slide_mode": "autoplay_muted",
+                "url": "",
+                "heading_text": "Teas",
+                "desc": "<p>Classic and Bold Blends</p>",
+                "heading_after_description": true,
+                "button_name": "",
+                "heading_size_px": 40,
+                "hover_underline": true,
+                "position": "align-items-start",
+                "text_align": "text-left",
+                "description_width": 100,
+                "show_background": false,
+                "box_opacity": 90,
+                "heading_text_link": "#536d3a",
+                "heading_text_link_hover": "#536d3a",
+                "color_desc": "#333333",
+                "color_desc_hover": "#333333",
+                "show_button_bg": true,
+                "color_button": "rgba(0,0,0,0)",
+                "color_button_gradient": "",
+                "color_button_border": "rgba(0,0,0,0)",
+                "color_button_text": "rgba(0,0,0,0)",
+                "show_button_bg_hover": true,
+                "color_button_hover": "rgba(0,0,0,0)",
+                "color_button_gradient_hover": "",
+                "color_button_border_hover": "rgba(0,0,0,0)",
+                "color_button_text_hover": "rgba(0,0,0,0)",
+                "show_shadow_button": true,
+                "color_shadow_button": "rgba(0,0,0,0)",
+                "color_shadow_hover_button": "rgba(0,0,0,0)",
+                "color_background_box": "rgba(0,0,0,0)",
+                "color_background_box_hover": "rgba(0,0,0,0)",
+                "color_media_background": "rgba(0,0,0,0)",
+                "color_media_icon": "rgba(0,0,0,0)",
+                "color_media_background_hover": "rgba(0,0,0,0)",
+                "color_media_icon_hover": "rgba(0,0,0,0)",
+                "image_overlay_color": "rgba(0,0,0,0)"
+              },
+              "blocks": {}
+            },
+            "megamenu_banner_PD3y9K": {
+              "type": "megamenu-banner",
+              "name": "Banner",
+              "settings": {
+                "content_type": "image",
+                "image": "",
+                "image_ratio": "auto",
+                "roundness_type": "default",
+                "roundness": 20,
+                "image_overlay_opacity": 0,
+                "image_overlay_fill": false,
+                "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+                "video_slide_mode": "autoplay_muted",
+                "url": "",
+                "heading_text": "Merch",
+                "desc": "<p>Tea-Inspired Gear for Fans</p>",
+                "heading_after_description": true,
+                "button_name": "",
+                "heading_size_px": 40,
+                "hover_underline": true,
+                "position": "align-items-start",
+                "text_align": "text-left",
+                "description_width": 100,
+                "show_background": false,
+                "box_opacity": 90,
+                "heading_text_link": "#536d3a",
+                "heading_text_link_hover": "#536d3a",
+                "color_desc": "#333333",
+                "color_desc_hover": "#333333",
+                "show_button_bg": true,
+                "color_button": "rgba(0,0,0,0)",
+                "color_button_gradient": "",
+                "color_button_border": "rgba(0,0,0,0)",
+                "color_button_text": "rgba(0,0,0,0)",
+                "show_button_bg_hover": true,
+                "color_button_hover": "rgba(0,0,0,0)",
+                "color_button_gradient_hover": "",
+                "color_button_border_hover": "rgba(0,0,0,0)",
+                "color_button_text_hover": "rgba(0,0,0,0)",
+                "show_shadow_button": true,
+                "color_shadow_button": "rgba(0,0,0,0)",
+                "color_shadow_hover_button": "rgba(0,0,0,0)",
+                "color_background_box": "rgba(0,0,0,0)",
+                "color_background_box_hover": "rgba(0,0,0,0)",
+                "color_media_background": "rgba(0,0,0,0)",
+                "color_media_icon": "rgba(0,0,0,0)",
+                "color_media_background_hover": "rgba(0,0,0,0)",
+                "color_media_icon_hover": "rgba(0,0,0,0)",
+                "image_overlay_color": "rgba(0,0,0,0)"
+              },
+              "blocks": {}
+            },
+            "megamenu_banner_itKDkp": {
+              "type": "megamenu-banner",
+              "name": "Banner",
+              "settings": {
+                "content_type": "image",
+                "image": "",
+                "image_ratio": "auto",
+                "roundness_type": "default",
+                "roundness": 20,
+                "image_overlay_opacity": 0,
+                "image_overlay_fill": false,
+                "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+                "video_slide_mode": "autoplay_muted",
+                "url": "",
+                "heading_text": "Wares",
+                "desc": "<p>Cups, Teapots, and Accessories</p>",
+                "heading_after_description": true,
+                "button_name": "",
+                "heading_size_px": 40,
+                "hover_underline": true,
+                "position": "align-items-start",
+                "text_align": "text-left",
+                "description_width": 100,
+                "show_background": false,
+                "box_opacity": 90,
+                "heading_text_link": "#536d3a",
+                "heading_text_link_hover": "#536d3a",
+                "color_desc": "#333333",
+                "color_desc_hover": "#333333",
+                "show_button_bg": true,
+                "color_button": "rgba(0,0,0,0)",
+                "color_button_gradient": "",
+                "color_button_border": "rgba(0,0,0,0)",
+                "color_button_text": "rgba(0,0,0,0)",
+                "show_button_bg_hover": true,
+                "color_button_hover": "rgba(0,0,0,0)",
+                "color_button_gradient_hover": "",
+                "color_button_border_hover": "rgba(0,0,0,0)",
+                "color_button_text_hover": "rgba(0,0,0,0)",
+                "show_shadow_button": true,
+                "color_shadow_button": "rgba(0,0,0,0)",
+                "color_shadow_hover_button": "rgba(0,0,0,0)",
+                "color_background_box": "rgba(0,0,0,0)",
+                "color_background_box_hover": "rgba(0,0,0,0)",
+                "color_media_background": "rgba(0,0,0,0)",
+                "color_media_icon": "rgba(0,0,0,0)",
+                "color_media_background_hover": "rgba(0,0,0,0)",
+                "color_media_icon_hover": "rgba(0,0,0,0)",
+                "image_overlay_color": "rgba(0,0,0,0)"
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "megamenu_fake_links_kzGGdH",
+            "megamenu_banner_dPHFgG",
+            "megamenu_banner_PD3y9K",
+            "megamenu_banner_itKDkp"
+          ]
+        }
+      },
+      "block_order": [
+        "megamenu_item_qJMRdV"
+      ],
+      "name": "Megamenu modules",
+      "settings": {
+        "image_hover": "default"
+      }
+    }
+  },
+  "order": [
+    "header_9GztDw",
+    "megamenu_modules_YkjRpU"
+  ]
+}

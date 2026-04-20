@@ -1,25 +1,34 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "Footer",
   "type": "footer",
   "sections": {
-    "newsletter_signup_NVKkK7": {
+    "newsletter_signup_MP9jtd": {
       "type": "newsletter-signup",
       "name": "t:names.newsletter_signup",
       "settings": {
         "main_subheading": "Newsletter Signup",
         "main_heading": "Join Our Exclusive Community",
-        "main_desc": "Get exclusive offers, early access, and style inspiration.",
+        "main_desc": "",
         "heading_aligment": "text-left",
         "top_spacing": "normal",
         "top_spacing_none_index": false,
         "width": "default",
         "show_newsletter": true,
         "desc2": "<p>By clicking the button you agree to the <a href=\"/\"><strong>Privacy Policy</strong></a> and <a href=\"/\"><strong>Terms and Conditions</strong></a>.</p>",
-        "show_social": true,
+        "show_social": false,
         "show_lines": false,
         "lines_width": "fullwidth",
         "background": "color",
-        "color_background": "#f2f2f2",
+        "color_background": "#005649",
         "gradient": "",
         "image_overlay_opacity": 0,
         "image_overlay_color": "rgba(0,0,0,0)",
@@ -29,25 +38,25 @@
         "imagealign": "center",
         "imagesize": "cover",
         "background_width": "fullwidth",
-        "background_spacing": "medium",
+        "background_spacing": "small",
         "remove_bottom_spacing": false,
-        "color_base": "rgba(0,0,0,0)",
-        "color_accent": "rgba(0,0,0,0)",
+        "color_base": "#ffffff",
+        "color_accent": "#ffffff",
         "color_lines": "rgba(0,0,0,0)",
         "color_heading": "rgba(0,0,0,0)",
         "color_text_link": "rgba(0,0,0,0)",
         "color_text_link_hover": "rgba(0,0,0,0)",
         "color_social_icons": "rgba(0,0,0,0)",
         "color_social_icons_hover": "rgba(0,0,0,0)",
-        "color_input_background": "#ffffff",
+        "color_input_background": "#286e63",
         "color_input_border": "rgba(0,0,0,0)",
         "color_input_text": "rgba(0,0,0,0)",
         "color_input_icon": "rgba(0,0,0,0)",
         "color_input_background_hover": "rgba(0,0,0,0)",
         "color_input_border_hover": "rgba(0,0,0,0)",
         "color_input_outline_hover": "rgba(0,0,0,0)",
-        "color_input_text_hover": "rgba(0,0,0,0)",
-        "color_input_icon_hover": "rgba(0,0,0,0)"
+        "color_input_text_hover": "#452626",
+        "color_input_icon_hover": "#452626"
       }
     },
     "footer": {
@@ -59,16 +68,16 @@
             "show_image": "hide",
             "image_ratio": "auto",
             "logo_svg": "",
-            "logo_max_width": 250,
+            "logo_max_width": 130,
             "url": "",
             "heading_text": "Order Pickup Point",
             "enable_heading_text": false,
             "align_content": "center",
             "text_icon_width": 20,
-            "icon_name_1": "Phone",
-            "description_1": "<h3>555-555-1000</h3>",
+            "icon_name_1": "",
+            "description_1": "<h2>T: 555-555-1000</h2>",
             "icon_name_2": "",
-            "description_2": "<p>Open daily from 08:00 to 19:00</p><p>Address:123 Madison Avenue, Suite 456</p><p>New York, NY 10010, USA</p>",
+            "description_2": "<h6>Open daily from 08:00 to 19:00</h6><p>123 Madison Avenue, Suite 456, New York, NY 10010</p>",
             "icon_name_3": "",
             "description_3": "",
             "icon_name_4": "",
@@ -96,10 +105,26 @@
             "color_shadow_hover_button": "rgba(0,0,0,0)"
           }
         },
+        "emptycolumn_pfiR8w": {
+          "type": "emptycolumn",
+          "settings": {}
+        },
         "link_list_tCkgCf": {
           "type": "link_list",
           "settings": {
             "block_size": "big",
+            "heading_text": "Collections",
+            "enable_heading_text": false,
+            "menu": "main-menu",
+            "color_heading": "rgba(0,0,0,0)",
+            "color_text_link": "rgba(0,0,0,0)",
+            "color_text_link_hover": "rgba(0,0,0,0)"
+          }
+        },
+        "link_list_J8pkUf": {
+          "type": "link_list",
+          "settings": {
+            "block_size": "default",
             "heading_text": "",
             "enable_heading_text": false,
             "menu": "main-menu",
@@ -111,32 +136,34 @@
       },
       "block_order": [
         "media_with_text_yCnmzf",
-        "link_list_tCkgCf"
+        "emptycolumn_pfiR8w",
+        "link_list_tCkgCf",
+        "link_list_J8pkUf"
       ],
       "settings": {
         "top_spacing": "none",
         "top_spacing_none_index": false,
         "width": "default",
-        "grid": "page-grid-2",
-        "grid_tablet": "page-grid-st-2",
+        "grid": "page-grid-md-2 page-grid-4",
+        "grid_tablet": "page-grid-st-3",
         "image_hover": "default",
-        "show_all_text_in_admin": true,
-        "enable_accordion": true,
+        "show_all_text_in_admin": false,
+        "enable_accordion": false,
         "enable_country_selector": true,
         "enable_language_selector": true,
         "payment_enable": true,
         "show_policy": true,
-        "show_lines": true,
+        "show_lines": false,
         "show_lines_bottom": true,
         "lines_width": "content_width",
         "background": "color",
-        "color_background": "#f2f2f2",
+        "color_background": "#fcf3ec",
         "gradient": "",
         "imagealign": "center",
         "imagesize": "cover",
         "image_overlay_opacity": 30,
         "background_width": "fullwidth",
-        "background_spacing": "medium",
+        "background_spacing": "normal",
         "color_base": "rgba(0,0,0,0)",
         "color_accent": "rgba(0,0,0,0)",
         "color_lines": "rgba(0,0,0,0)",
@@ -144,41 +171,10 @@
         "selector_text": "#ffffff",
         "selector_text_hover": "#ffffff"
       }
-    },
-    "footer_logo_XXLrkX": {
-      "type": "footer-logo",
-      "name": "t:names.footer_logo",
-      "settings": {
-        "top_spacing": "none",
-        "top_spacing_none_index": false,
-        "width": "default",
-        "logo_svg": "",
-        "align_content": "center text-center",
-        "desktop_width": 100,
-        "tablet_width": 100,
-        "mobile_width": 100,
-        "show_lines": false,
-        "lines_width": "fullwidth",
-        "background": "color",
-        "color_background": "rgba(0,0,0,0)",
-        "gradient": "",
-        "image_overlay_opacity": 0,
-        "image_overlay_color": "rgba(0,0,0,0)",
-        "image_overlay_opacity_mobile": 0,
-        "image_overlay_color_mobile": "rgba(0,0,0,0)",
-        "show_parallax": false,
-        "imagealign": "center",
-        "imagesize": "cover",
-        "background_width": "fullwidth",
-        "background_spacing": "medium",
-        "remove_bottom_spacing": false,
-        "color_lines": "rgba(0,0,0,0)"
-      }
     }
   },
   "order": [
-    "newsletter_signup_NVKkK7",
-    "footer",
-    "footer_logo_XXLrkX"
+    "newsletter_signup_MP9jtd",
+    "footer"
   ]
 }
