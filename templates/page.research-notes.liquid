@@ -1,0 +1,106 @@
+{% capture default_body_html %}
+  <h2>这页解决什么问题</h2>
+  <p>这页用于公开预览紫铜水瓶手冲咖啡壶在样品复核前的研究记录。它只服务首批小范围 smoke 外放，目的是说明当前已知资料和仍需复核的边界，不是正式开售、预售、预约或候补页面。</p>
+
+  <h2>目前能公开说明什么</h2>
+  <ul>
+    <li>产品方向：紫铜水瓶手冲咖啡壶，单一 SKU。</li>
+    <li>内壁版本：当前锁定为非银内壁版本。</li>
+    <li>页面动作：只开放到货通知，不开放下单或购买型交互。</li>
+    <li>器型观察：资料显示为水瓶型轮廓，可用于解释器型识别和咖啡角陈列感。</li>
+    <li>素材状态：图册图、资料图或安全占位图都必须显性标注，不得伪装成实拍。</li>
+  </ul>
+
+  <h2>规格事实底稿</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>字段</th>
+        <th>页面可写内容</th>
+        <th>状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>商品名称</th>
+        <td>紫铜水瓶手冲咖啡壶</td>
+        <td>资料显示 / 待样品复核</td>
+      </tr>
+      <tr>
+        <th>内壁版本</th>
+        <td>非银内壁版本</td>
+        <td>资料显示 / 待样品复核</td>
+      </tr>
+      <tr>
+        <th>壶体材质</th>
+        <td>紫铜壶体</td>
+        <td>资料显示 / 待样品复核</td>
+      </tr>
+      <tr>
+        <th>壶盖材质</th>
+        <td>紫铜</td>
+        <td>资料显示 / 待样品复核</td>
+      </tr>
+      <tr>
+        <th>把手 / 盖钮</th>
+        <td>电木</td>
+        <td>资料显示 / 待样品复核</td>
+      </tr>
+      <tr>
+        <th>容量</th>
+        <td>500 cc</td>
+        <td>资料显示 / 待样品复核</td>
+      </tr>
+      <tr>
+        <th>口径</th>
+        <td>5 cm</td>
+        <td>资料显示 / 待样品复核</td>
+      </tr>
+      <tr>
+        <th>底径</th>
+        <td>6.1 cm</td>
+        <td>资料显示 / 待样品复核</td>
+      </tr>
+      <tr>
+        <th>高度</th>
+        <td>15.6 cm</td>
+        <td>资料显示 / 待样品复核</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>样品到手后才会补什么</h2>
+  <p>样品验收后再补充已经完成核验且适合公开的资料，例如实拍图、真实色泽、上手比例、材质与尺寸复核结果，以及下一阶段页面状态说明。在这些内容完成前，页面不会写检测通过、食品安全结论、精准控流、专业级表现或任何购买承诺。</p>
+
+  <h2>为什么先做到货通知</h2>
+  <p>到货通知只用于接收后续资料更新提醒，不代表预订成功，也不锁定购买资格或交付安排。这样可以在小范围 preview 中观察用户是否理解资料边界，同时避免把未验证资料包装成购买承诺。</p>
+{% endcapture %}
+
+{% capture aside_html %}
+  <span class="preview-doc__tag">资料图</span>
+  <span class="preview-doc__tag">待复核</span>
+  <span class="preview-doc__tag">非实拍</span>
+  <p>以下内容不得进入研究记录、首页、PDP、FAQ、SEO 或客服话术：</p>
+  <ul>
+    <li>银内壁、999 银内壁、镀银内壁。</li>
+    <li>食品级、检测通过、符合标准等结论。</li>
+    <li>精准控流、稳定萃取、专业级表现。</li>
+    <li>正式开售、预售、预约、候补、锁定名额。</li>
+    <li>多 SKU、多版本或未锁定工艺叙事。</li>
+  </ul>
+{% endcapture %}
+
+{% render 'preview-page-shell',
+  eyebrow: 'Research Notes',
+  title: '当前阶段研究记录',
+  intro: '这页只服务资料预览阶段，解释为什么现在只有 notify-only 页面，以及哪些字段仍需样品复核。',
+  page_title: page.title,
+  page_content: page.content,
+  body_html: default_body_html,
+  aside_title: '禁写红线',
+  aside_html: aside_html,
+  cta_title: '需要后续公开更新时再留邮箱',
+  cta_text: '邮件只用于这款产品的到货通知和相关公开更新，不代表预订、候补或购买资格。',
+  cta_label: '前往产品页到货通知',
+  cta_link: '/products/copper-bottle-pour-over-kettle#notify-interest'
+%}

@@ -1,0 +1,460 @@
+{% liquid
+  assign notify_tag = 'notify-copper-bottle-pour-over-kettle'
+  assign hero_heading = section.settings.hero_heading | default: '紫铜水瓶手冲咖啡壶'
+  assign hero_subheading = section.settings.hero_subheading | default: '非银内壁版本 · 资料预览阶段'
+  assign hero_body = section.settings.hero_body | default: '当前页面仅用于资料预览和到货通知，不开放正式下单。后续如有公开更新，会通过页面或邮件同步。'
+%}
+
+<style>
+  #shopify-section-{{ section.id }} .preview-home {
+    --preview-bg: #f5efe6;
+    --preview-card: #fff9f1;
+    --preview-card-strong: #f7f0e7;
+    --preview-text: #2b211a;
+    --preview-muted: #6f6258;
+    --preview-line: #d8c7b5;
+    --preview-accent: #4d3727;
+    --preview-tag: #496b5d;
+    background:
+      radial-gradient(circle at top right, rgba(73, 107, 93, 0.10), transparent 32%),
+      linear-gradient(180deg, #f8f2ea 0%, #f5efe6 100%);
+    color: var(--preview-text);
+    padding: 40px 0 72px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__container {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__status {
+    margin-bottom: 18px;
+    padding: 12px 16px;
+    border: 1px solid var(--preview-line);
+    background: rgba(255, 249, 241, 0.92);
+    color: var(--preview-accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__hero,
+  #shopify-section-{{ section.id }} .preview-home__grid,
+  #shopify-section-{{ section.id }} .preview-home__two-col,
+  #shopify-section-{{ section.id }} .preview-home__cta {
+    display: grid;
+    gap: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__hero {
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    align-items: stretch;
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__hero-copy,
+  #shopify-section-{{ section.id }} .preview-home__hero-media,
+  #shopify-section-{{ section.id }} .preview-home__research,
+  #shopify-section-{{ section.id }} .preview-home__notify,
+  #shopify-section-{{ section.id }} .preview-home__faq,
+  #shopify-section-{{ section.id }} .preview-home__panel {
+    border: 1px solid var(--preview-line);
+    background: rgba(255, 249, 241, 0.94);
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__hero-copy,
+  #shopify-section-{{ section.id }} .preview-home__research,
+  #shopify-section-{{ section.id }} .preview-home__notify,
+  #shopify-section-{{ section.id }} .preview-home__faq,
+  #shopify-section-{{ section.id }} .preview-home__panel {
+    padding: 28px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__eyebrow {
+    margin: 0 0 10px;
+    color: var(--preview-tag);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__hero-copy h1 {
+    margin: 0;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.02;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__subheading {
+    margin: 14px 0 0;
+    color: var(--preview-muted);
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__hero-copy p,
+  #shopify-section-{{ section.id }} .preview-home__panel p,
+  #shopify-section-{{ section.id }} .preview-home__research p,
+  #shopify-section-{{ section.id }} .preview-home__notify p,
+  #shopify-section-{{ section.id }} .preview-home__faq p,
+  #shopify-section-{{ section.id }} .preview-home__faq li {
+    color: var(--preview-text);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+    padding: 12px 18px;
+    background: var(--preview-accent);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__secondary {
+    margin-left: 12px;
+    color: var(--preview-accent);
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__hero-media {
+    position: relative;
+    min-height: 440px;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__hero-media img,
+  #shopify-section-{{ section.id }} .preview-home__artifact img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__placeholder {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: linear-gradient(135deg, #efe3d4 0%, #f8f2ea 100%);
+    color: var(--preview-muted);
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 8px 12px;
+    background: rgba(43, 33, 26, 0.82);
+    color: #fff9f1;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__card {
+    padding: 20px;
+    border: 1px solid var(--preview-line);
+    background: rgba(255, 249, 241, 0.94);
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__card h3,
+  #shopify-section-{{ section.id }} .preview-home__panel h2,
+  #shopify-section-{{ section.id }} .preview-home__research h2,
+  #shopify-section-{{ section.id }} .preview-home__notify h2,
+  #shopify-section-{{ section.id }} .preview-home__faq h2 {
+    margin: 0 0 10px;
+    line-height: 1.25;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__card h3 {
+    font-size: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__artifact {
+    position: relative;
+    min-height: 320px;
+    border: 1px solid var(--preview-line);
+    overflow: hidden;
+    background: rgba(255, 249, 241, 0.94);
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__list {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__list li {
+    margin-bottom: 10px;
+    color: var(--preview-text);
+    line-height: 1.7;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__research {
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__faq-grid,
+  #shopify-section-{{ section.id }} .preview-home__cta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__faq details {
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: var(--preview-card-strong);
+    border: 1px solid var(--preview-line);
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__faq summary {
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__notify form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__notify input[type="email"] {
+    flex: 1 1 260px;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid var(--preview-line);
+    background: #fff;
+    color: var(--preview-text);
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__notify button {
+    padding: 12px 18px;
+    border: 0;
+    background: var(--preview-accent);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__fineprint {
+    margin-top: 12px;
+    color: var(--preview-muted);
+    font-size: 13px;
+  }
+
+  @media screen and (max-width: 989px) {
+    #shopify-section-{{ section.id }} .preview-home__hero,
+    #shopify-section-{{ section.id }} .preview-home__grid,
+    #shopify-section-{{ section.id }} .preview-home__two-col,
+    #shopify-section-{{ section.id }} .preview-home__faq-grid,
+    #shopify-section-{{ section.id }} .preview-home__cta {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    #shopify-section-{{ section.id }} .preview-home__hero-media {
+      min-height: 320px;
+    }
+  }
+</style>
+
+<section class="preview-home">
+  <div class="preview-home__container">
+    <div class="preview-home__status">资料预览中 · 仅开放到货通知 · 前台素材均标注资料图 / 占位图</div>
+
+    <div class="preview-home__hero">
+      <div class="preview-home__hero-copy">
+        <p class="preview-home__eyebrow">Copper Artifact Preview</p>
+        <h1>{{ hero_heading }}</h1>
+        <p class="preview-home__subheading">{{ hero_subheading }}</p>
+        <p>{{ hero_body }}</p>
+        <a class="preview-home__button" href="/products/copper-bottle-pour-over-kettle#notify-interest">到货通知我</a>
+        <a class="preview-home__secondary" href="/pages/research-notes">查看研究记录</a>
+      </div>
+
+      <div class="preview-home__hero-media">
+        <span class="preview-home__badge">资料图 / 占位图 / 待实拍</span>
+        {%- if section.settings.hero_image != blank -%}
+          {{ section.settings.hero_image | image_url: width: 1400 | image_tag: alt: '紫铜水瓶手冲咖啡壶 Hero 资料图（非实拍）' }}
+        {%- else -%}
+          <div class="preview-home__placeholder">
+            <div>
+              <strong>Hero 素材待上传</strong>
+              <p style="margin:10px 0 0;">当前可先使用带显性角标的占位图或资料图，不允许伪装成实拍。</p>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="preview-home__grid">
+      <div class="preview-home__card">
+        <h3>紫铜壶体</h3>
+        <p>壶体材质为紫铜，当前锁定非银内壁版本。</p>
+      </div>
+      <div class="preview-home__card">
+        <h3>水瓶型轮廓</h3>
+        <p>现阶段只说明器型识别、铜器视觉和咖啡角陈列感，不提前承诺性能表现。</p>
+      </div>
+      <div class="preview-home__card">
+        <h3>图册规格待复核</h3>
+        <p>容量 500 cc、口径 5 cm、底径 6.1 cm、高度 15.6 cm，均为资料显示 / 待样品复核。</p>
+      </div>
+      <div class="preview-home__card">
+        <h3>单一 SKU</h3>
+        <p>当前只围绕这一款推进，不扩容量选择、把手版本或系列导购。</p>
+      </div>
+    </div>
+
+    <div class="preview-home__two-col">
+      <div class="preview-home__artifact">
+        <span class="preview-home__badge">轮廓示意 / 资料图</span>
+        {%- if section.settings.artifact_image != blank -%}
+          {{ section.settings.artifact_image | image_url: width: 1200 | image_tag: alt: '紫铜水瓶手冲咖啡壶 资料图（非实拍）' }}
+        {%- else -%}
+          <div class="preview-home__placeholder">
+            <div>
+              <strong>器型资料图待挂载</strong>
+              <p style="margin:10px 0 0;">可先用图册裁切、轮廓示意或安全占位图，不阻塞前台挂载。</p>
+            </div>
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="preview-home__panel">
+        <p class="preview-home__eyebrow">器型与材质说明</p>
+        <h2>先解释资料边界，再展示商品</h2>
+        <p>当前页面只公开已知资料：紫铜壶体、非银内壁版本、水瓶型轮廓，以及图册中的基础规格。真实色泽、上手比例、做工细节和使用体验都要等样品复核后再补。</p>
+        <p>本阶段不把资料图写成实拍，不把资料字段写成实测，不把到货通知包装成预订或候补。</p>
+      </div>
+    </div>
+
+    <div class="preview-home__research">
+      <p class="preview-home__eyebrow">Research Notes</p>
+      <h2>为什么现在只开放到货通知</h2>
+      <p>研究记录页集中解释当前已知资料、待样品复核字段、禁写红线，以及为什么这一轮只做 preview-only + notify-only，而不提前开放正式购买。</p>
+      <a class="preview-home__button" href="/pages/research-notes">查看研究记录</a>
+      <a class="preview-home__secondary" href="/pages/preview-stage">查看当前阶段说明</a>
+    </div>
+
+    <div class="preview-home__two-col">
+      <div class="preview-home__panel">
+        <p class="preview-home__eyebrow">已知资料</p>
+        <ul class="preview-home__list">
+          <li>紫铜壶体，非银内壁版本。</li>
+          <li>水瓶型轮廓，当前只说明器型识别与低承诺场景。</li>
+          <li>图册显示容量 500 cc、口径 5 cm、底径 6.1 cm、高度 15.6 cm。</li>
+          <li>到货通知是当前唯一允许的转化动作。</li>
+        </ul>
+      </div>
+      <div class="preview-home__panel">
+        <p class="preview-home__eyebrow">待样品复核后补充</p>
+        <ul class="preview-home__list">
+          <li>实拍图、真实色泽和上手比例。</li>
+          <li>规格复核结果、材质细节和做工观察。</li>
+          <li>价格、库存、交期和正式购买路径。</li>
+          <li>评论、推荐商品、多 SKU 或正式销售页模块。</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="preview-home__faq-grid">
+      <div class="preview-home__faq">
+        <p class="preview-home__eyebrow">FAQ</p>
+        <h2>先把误解拦在首页</h2>
+        <details>
+          <summary>现在可以直接买吗？</summary>
+          <p>不能。当前阶段只开放到货通知，不开放正式下单；这不是购买页。</p>
+        </details>
+        <details>
+          <summary>可以先预订、预约或候补吗？</summary>
+          <p>不能。当前不做预订、预约或候补，也不会因为先提交邮箱而获得排队或优先购买资格。</p>
+        </details>
+        <details>
+          <summary>这是银内壁款吗？</summary>
+          <p>不是。当前锁定的是非银内壁版本，不会使用银内壁、镀银内壁或 999 银内壁卖点。</p>
+        </details>
+        <details>
+          <summary>规格已经确定了吗？</summary>
+          <p>图册资料显示容量 500 cc、口径 5 cm、底径 6.1 cm、高度 15.6 cm，正式发布前仍需样品复核。</p>
+        </details>
+        <a class="preview-home__secondary" href="/pages/faq" style="margin-left:0;">查看完整 FAQ</a>
+      </div>
+
+      <div class="preview-home__notify" id="notify-cta">
+        <p class="preview-home__eyebrow">Notify Only</p>
+        <h2>留下邮箱，接收后续公开更新</h2>
+        <p>邮箱仅用于这款产品的到货通知和相关公开更新。这不是购买页提交，不代表预订、候补或购买资格。</p>
+        {%- form 'customer' -%}
+          <input type="hidden" name="contact[tags]" value="{{ notify_tag }}">
+          <input type="email" name="contact[email]" placeholder="输入邮箱，接收这款的到货通知" required>
+          <button type="submit">到货通知我</button>
+          {%- if form.posted_successfully? -%}
+            <p class="preview-home__fineprint" style="color:#2f6f3e;">提交成功。后续如这款产品有公开更新，我们会通过邮箱通知你；这次提交不代表预订或候补资格。</p>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <p class="preview-home__fineprint" style="color:#a94442;">请填写有效邮箱后再提交。</p>
+          {%- endif -%}
+        {%- endform -%}
+        <p class="preview-home__fineprint">当前阶段说明：这不是购买页，不开售，也不开放预订或候补。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Preview Homepage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Hero 标题",
+      "default": "紫铜水瓶手冲咖啡壶"
+    },
+    {
+      "type": "text",
+      "id": "hero_subheading",
+      "label": "Hero 副标题",
+      "default": "非银内壁版本 · 资料预览阶段"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_body",
+      "label": "Hero 说明",
+      "default": "当前页面仅用于资料预览和到货通知，不开放正式下单。后续如有公开更新，会通过页面或邮件同步。"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero 图片"
+    },
+    {
+      "type": "image_picker",
+      "id": "artifact_image",
+      "label": "器型 / 资料图片"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Preview Homepage"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,80 @@
+{% capture default_body_html %}
+  <h2>当前公开范围</h2>
+  <p>这家店当前只把自己呈现为一个资料预览型店铺。前台会说明我们关注铜器茶具、咖具与餐具，但首期真正对外承接的只有一款产品：紫铜水瓶手冲咖啡壶，非银内壁版本。</p>
+  <ul>
+    <li>首页用于说明当前阶段、店铺方向和唯一可行动作。</li>
+    <li>产品页用于展示单品资料、待复核字段和到货通知表单。</li>
+    <li>研究记录页用于解释为什么现在只有资料预览，没有正式销售承诺。</li>
+    <li>FAQ 页用于集中回答购买、通知和隐私相关问题。</li>
+  </ul>
+
+  <h2>前台必须保持的边界</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>模块</th>
+        <th>当前状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>价格 / 库存 / 交期</th>
+        <td>不展示，不形成购买或履约承诺。</td>
+      </tr>
+      <tr>
+        <th>购买按钮 / 变体选择</th>
+        <td>关闭，只保留到货通知入口。</td>
+      </tr>
+      <tr>
+        <th>图片状态</th>
+        <td>资料图、图册资料、轮廓示意或占位图都必须显性标注，不伪装成实拍。</td>
+      </tr>
+      <tr>
+        <th>对外口径</th>
+        <td>只能使用 preview-only + notify-only 语义，不写预售、候补、锁名额或即将开售。</td>
+      </tr>
+      <tr>
+        <th>SKU 范围</th>
+        <td>只围绕当前这一款推进，不扩成多版本、多容量或系列导购。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>到货通知意味着什么</h2>
+  <p>留下邮箱只表示你愿意接收这款产品的后续公开更新，例如资料补充、页面状态变化或到货通知。它不代表预订成功，也不锁定库存、购买资格或交付安排。</p>
+
+  <h2>哪些内容要等样品后再解锁</h2>
+  <ul>
+    <li>实拍图与更接近真实色泽的前台素材。</li>
+    <li>规格复核结果、材质细节和上手观察。</li>
+    <li>价格、库存、正式购买路径和履约信息。</li>
+    <li>评论、推荐商品、扩 SKU 或正式销售页模块。</li>
+  </ul>
+{% endcapture %}
+
+{% capture aside_html %}
+  <span class="preview-doc__tag">preview-only</span>
+  <span class="preview-doc__tag">notify-only</span>
+  <span class="preview-doc__tag">single sku</span>
+  <p>首屏先说明阶段，再展示商品；唯一转化动作是到货通知。</p>
+  <ul>
+    <li><a href="/products/copper-bottle-pour-over-kettle">查看紫铜咖啡壶资料页</a></li>
+    <li><a href="/pages/research-notes">查看研究记录</a></li>
+    <li><a href="/pages/faq">查看常见问题</a></li>
+  </ul>
+{% endcapture %}
+
+{% render 'preview-page-shell',
+  eyebrow: '当前阶段说明',
+  title: '资料预览阶段说明',
+  intro: '当前店铺不作为正式销售站运行。它的任务是清楚说明资料边界、承接到货通知，并避免把未验证内容包装成购买承诺。',
+  page_title: page.title,
+  page_content: page.content,
+  body_html: default_body_html,
+  aside_title: '前台检查点',
+  aside_html: aside_html,
+  cta_title: '留下邮箱，接收后续公开更新',
+  cta_text: '当前唯一允许的转化动作是到货通知。后续如果这款产品进入下一阶段，会通过页面或邮件同步。',
+  cta_label: '回到首页通知入口',
+  cta_link: '/#notify-cta'
+%}
