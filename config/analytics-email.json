@@ -1,0 +1,73 @@
+{
+  "_doc": "Capsule Preview 阶段 GA4 + 邮件收集最小配置",
+  "_stage": "Capsule Preview / notify-only",
+  "_updated": "2026-04-20",
+
+  "ga4": {
+    "setup_steps": [
+      {
+        "step": 1,
+        "action": "创建 GA4 Property",
+        "where": "analytics.google.com > Admin > Create Property",
+        "blocker": "无，免费",
+        "output": "Measurement ID，格式为 G-XXXXXXXXXX"
+      },
+      {
+        "step": 2,
+        "action": "在 Shopify 后台填入 Measurement ID",
+        "where": "Shopify Admin > Online Store > Preferences > Google Analytics",
+        "blocker": "需要 Shopify 店铺处于 trial 或已激活状态",
+        "note": "密码保护模式下 GA4 仍可追踪 pageview"
+      },
+      {
+        "step": 3,
+        "action": "验证 pageview 事件",
+        "where": "GA4 > Realtime > Events",
+        "blocker": "需要店铺可访问（密码保护模式下可用预览链接测试）"
+      },
+      {
+        "step": 4,
+        "action": "标记到货通知表单提交为 conversion event",
+        "where": "GA4 > Admin > Events > Mark as conversion",
+        "event_name": "generate_lead",
+        "note": "Shopify 原生 customer form 提交会触发 generate_lead 事件"
+      }
+    ],
+    "minimum_tracking_targets": [
+      "pageview（自动）",
+      "到货通知表单提交（generate_lead conversion）"
+    ],
+    "not_needed_now": [
+      "Enhanced ecommerce（无交易）",
+      "Google Ads 转化追踪（不投放）",
+      "Search Console 集成（不需要 SEO 收录）"
+    ]
+  },
+
+  "email_collection": {
+    "phase_1_shopify_native": {
+      "description": "Shopify 原生 Customer form，Capsule Preview 阶段首选",
+      "complexity": "低，无需安装 App",
+      "how_it_works": "theme/templates/product-copper-kettle.liquid 中的 {%- form 'customer' -%} 块已实现，提交后在 Shopify Admin > Customers 可查看",
+      "tag_applied": "notify-copper-bottle-pour-over-kettle",
+      "export_emails": "Shopify Admin > Customers > 按 tag 筛选 > Export CSV",
+      "limitation": "无自动化通知流程，需手动导出后发送"
+    },
+    "phase_2_klaviyo": {
+      "description": "Klaviyo 免费层，建议在收集到 20+ 意向后升级",
+      "complexity": "中，需安装 Shopify App + 配置 List",
+      "install": "Shopify App Store > Klaviyo: Email Marketing & SMS",
+      "blocker": "需要 Shopify 店铺有有效支付方式绑定（trial 期可安装，不受阻）",
+      "list_name": "Capsule Preview Notify List",
+      "automation": "到货通知触发流程（Klaviyo Flow > Trigger: List Subscribe）"
+    },
+    "recommendation": "先用 Shopify 原生表单，同步安装 Klaviyo 并创建 List，等意向量达到 20+ 再切换自动化流程"
+  },
+
+  "homepage_email_signup_section": {
+    "note": "首页 templates/index.json 中的 notify-cta section（type: email-signup）使用 Wokiee 内置 Email signup section",
+    "wokiee_section_type": "email-signup",
+    "connects_to": "Shopify 原生 newsletter subscriber list（与 Customer form 分开）",
+    "action_required": "在 Shopify Admin > Online Store > Themes > Customize 中配置 Email signup section 的标题和说明文案"
+  }
+}

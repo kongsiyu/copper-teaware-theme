@@ -9,12 +9,13 @@
     "product_type": "咖啡器具",
     "tags": ["紫铜", "手冲", "咖啡壶"],
     "status": "draft",
-    "body_html": "__PENDING_COPYWRITER__",
+    "body_html": "<p>这把紫铜水瓶手冲咖啡壶当前处于资料预览阶段。当前可公开信息包括紫铜壶体、非银内壁版本、水瓶型轮廓，以及图册资料显示的基础规格。</p><p>当前页面只用于资料预览和到货通知，不开放正式下单。</p><p>样品验收后，我们会补充实拍、规格复核结果，以及是否进入下一阶段的更新。</p>",
     "variants": [
       {
         "title": "Default Title",
         "sku": "CX-COFFEE-KETTLE-01",
-        "price": "__PENDING_PRICING__",
+        "price": "0.00",
+        "compare_at_price": null,
         "weight": "__PENDING_SAMPLE_VERIFICATION__",
         "weight_unit": "g",
         "inventory_management": "shopify",
@@ -49,8 +50,9 @@
     "images": [
       {
         "src": "__PENDING_SAMPLE_PHOTO__",
-        "alt": "紫铜水瓶手冲咖啡壶 — 正面",
-        "_note": "样品到手后替换为实拍图"
+        "alt": "紫铜水瓶手冲咖啡壶 — 资料图",
+        "status_badge": "资料图 / 占位图 / 待实拍",
+        "_note": "当前可先上传资料图或占位图，前台必须显性标注资料图 / 占位图 / 待实拍；样品到手后再替换为实拍图"
       }
     ],
     "metafields": [
