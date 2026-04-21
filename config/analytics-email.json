@@ -48,7 +48,7 @@
     "phase_1_shopify_native": {
       "description": "Shopify 原生 Customer form，Capsule Preview 阶段首选",
       "complexity": "低，无需安装 App",
-      "how_it_works": "theme/templates/product-copper-kettle.liquid 中的 {%- form 'customer' -%} 块已实现，提交后在 Shopify Admin > Customers 可查看",
+      "how_it_works": "theme/snippets/preview-product-dossier.liquid 中的 {%- form 'customer' -%} 块已实现；draft 商品 PDP 与公开资料页都会复用，提交后在 Shopify Admin > Customers 可查看",
       "tag_applied": "notify-copper-bottle-pour-over-kettle",
       "export_emails": "Shopify Admin > Customers > 按 tag 筛选 > Export CSV",
       "limitation": "无自动化通知流程，需手动导出后发送"

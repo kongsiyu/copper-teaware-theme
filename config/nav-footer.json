@@ -16,19 +16,19 @@
   "main-menu": {
     "links": [
       {
-        "title": "首页",
+        "title": "Home",
         "url": "/"
       },
       {
-        "title": "紫铜咖啡壶",
-        "url": "/products/copper-bottle-pour-over-kettle"
+        "title": "Product Details",
+        "url": "/pages/copper-kettle-preview"
       },
       {
-        "title": "研究记录",
-        "url": "/pages/research-notes"
+        "title": "FAQ",
+        "url": "/pages/faq"
       },
       {
-        "title": "到货通知",
+        "title": "Notify Me",
         "url": "/#notify-cta"
       }
     ]
@@ -36,27 +36,27 @@
   "footer-menu": {
     "links": [
       {
-        "title": "当前阶段说明",
+        "title": "Preview Terms",
         "url": "/pages/preview-stage"
       },
       {
-        "title": "常见问题",
+        "title": "FAQ",
         "url": "/pages/faq"
       },
       {
-        "title": "隐私说明",
+        "title": "Privacy Policy",
         "url": "/policies/privacy-policy"
       }
     ]
   },
   "_copy": {
-    "footer_stage_notice": "当前为资料预览阶段：这不是购买页，不开售、不预订、不候补；现阶段仅保留到货通知入口。",
-    "footer_privacy_notice": "邮箱仅用于到货通知和相关公开更新。这不是购买页提交，不代表预订、候补或购买资格；如不再需要，可随时取消订阅。"
+    "footer_stage_notice": "This site is in product-preview mode. It is not a live sales page, preorder page, or waitlist. The only active conversion is product updates.",
+    "footer_privacy_notice": "Email sign-up is used for product updates only. It does not reserve stock or create a purchase commitment, and people can unsubscribe at any time."
   },
   "_notes": {
-    "nav_scope": "Capsule Preview 阶段最小导航：首页 + 单品 PDP + 研究记录 + 到货通知锚点",
-    "footer_scope": "页脚保留阶段说明、FAQ 与隐私说明入口；newsletter 仍由首页 email-signup section 承接",
-    "page_templates": "Shopify 页面句柄建议：preview-stage -> page.preview-stage，research-notes -> page.research-notes，faq -> page.faq",
-    "menu_config": "在 Shopify 后台 Online Store > Navigation 创建 main-menu 和 footer-menu，按上方 links 配置"
+    "nav_scope": "US-market launch-preview navigation: Home + Product Details + FAQ + Notify Me anchor",
+    "footer_scope": "Footer keeps Preview Terms, FAQ, and Privacy Policy while the homepage section handles the update form",
+    "page_templates": "Suggested page handles: copper-kettle-preview -> page.copper-kettle-preview, preview-stage -> page.preview-stage, faq -> page.faq",
+    "menu_config": "Create main-menu and footer-menu in Shopify Online Store > Navigation and mirror the links above"
   }
 }
