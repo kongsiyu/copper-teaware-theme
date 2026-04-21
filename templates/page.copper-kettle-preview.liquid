@@ -1,0 +1,33 @@
+{% comment %}
+  Public preview route for the kettle while the underlying Shopify product
+  remains draft-locked. Use this page as the external-facing single-product
+  dossier during preview-only + notify-only.
+{% endcomment %}
+
+{% capture default_preview_description_html %}
+  <div class="default-preview-copy">
+    <p>这把紫铜水瓶手冲咖啡壶当前处于资料预览阶段。当前可公开信息包括紫铜壶体、非银内壁版本、水瓶型轮廓，以及图册资料显示的基础规格。</p>
+    <p>当前页面只用于资料预览和到货通知，不开放正式下单。</p>
+    <p>后续如这款产品有公开更新，我们会补充实拍、规格复核结果和页面状态说明。</p>
+  </div>
+{% endcapture %}
+
+{% liquid
+  assign preview_description_html = default_preview_description_html
+  if page.content != blank
+    assign preview_description_html = page.content
+  endif
+%}
+
+<div
+  class="preview-product"
+  data-preview-surface="public-page"
+  data-preview-route="/pages/copper-kettle-preview">
+  {% render 'preview-product-dossier',
+    preview_title: '紫铜水瓶手冲咖啡壶',
+    material_note: '紫铜壶体，非银内壁版本',
+    notify_tag: 'notify-copper-bottle-pour-over-kettle',
+    preview_description_html: preview_description_html,
+    notify_anchor_id: 'notify-interest'
+  %}
+</div>

@@ -7,183 +7,33 @@
 {%- assign sample_verified = false -%}
 {%- assign material_note = product.metafields.product_info.material_note | default: '紫铜壶体，非银内壁版本' -%}
 {%- assign notify_tag = 'notify-copper-bottle-pour-over-kettle' -%}
+{% capture default_preview_description_html %}
+  <div class="default-preview-copy">
+    <p>这把紫铜水瓶手冲咖啡壶当前处于资料预览阶段。当前可公开信息包括紫铜壶体、非银内壁版本、水瓶型轮廓，以及图册资料显示的基础规格。</p>
+    <p>当前页面只用于资料预览和到货通知，不开放正式下单。</p>
+    <p>后续如这款产品有公开更新，我们会补充实拍、规格复核结果和页面状态说明。</p>
+  </div>
+{% endcapture %}
 
-<style>
-  .preview-media-frame {
-    position: relative;
-  }
-
-  .preview-media-badge {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 1;
-    padding: 6px 10px;
-    background: rgba(43, 33, 26, 0.84);
-    color: #fff9f1;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
-
-  .preview-commerce-boundary {
-    margin: 16px 0;
-    padding: 14px 16px;
-    background: #fff9f1;
-    border: 1px solid #dbcbbd;
-    color: #4d3727;
-  }
-</style>
+{% liquid
+  assign preview_description_html = product.description
+  if preview_description_html == blank
+    assign preview_description_html = default_preview_description_html
+  endif
+%}
 
 <div
-  class="product-page"
+  class="preview-product"
   data-sample-verified="{{ sample_verified }}"
   data-preview-commerce="{% unless sample_verified %}notify-only{% else %}enabled-after-ceo-approval{% endunless %}"
   data-structured-offers="{% unless sample_verified %}disabled{% else %}eligible{% endunless %}">
-
-  {%- unless sample_verified -%}
-    <div class="sample-pending-banner" style="background:#fff3cd;padding:12px;margin-bottom:16px;border-left:4px solid #ffc107;">
-      资料预览：样品待验收，当前仅开放到货通知，这不是购买页。
-    </div>
-    <div class="preview-link-strip" style="display:flex;flex-wrap:wrap;gap:12px;margin:0 0 20px;padding:12px 16px;background:#f7f3ee;border:1px solid #dbcbbd;">
-      <a href="/pages/preview-stage" style="color:#4d3727;text-decoration:none;">当前阶段说明</a>
-      <a href="/pages/research-notes" style="color:#4d3727;text-decoration:none;">研究记录</a>
-      <a href="/pages/faq" style="color:#4d3727;text-decoration:none;">常见问题</a>
-    </div>
-  {%- endunless -%}
-
-  <div class="product-media">
-    <div class="preview-media-frame">
-      {%- if product.featured_image -%}
-        {%- assign media_alt = product.featured_image.alt | default: product.title | append: ' — 资料图 / 待实拍' -%}
-        {{ product.featured_image | image_url: width: 800 | image_tag: alt: media_alt }}
-      {%- else -%}
-        <div class="image-placeholder" style="background:#f5f0eb;aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:#999;">
-          实拍图待上传（样品到手后）
-        </div>
-      {%- endif -%}
-      {%- unless sample_verified -%}
-        <span class="preview-media-badge">资料图 / 占位图 / 待实拍</span>
-      {%- endunless -%}
-    </div>
-    {%- unless sample_verified -%}
-      <p class="media-note" style="margin-top:8px;color:#7a6b5d;font-size:14px;">
-        当前展示为资料图或占位图，不代表实拍。
-      </p>
-    {%- endunless -%}
-  </div>
-
-  <div class="product-info">
-    <h1 class="product-title">{{ product.title }}</h1>
-
-    <div class="product-meta">
-      <span class="material-tag">{{ material_note }}</span>
-    </div>
-    <p class="preview-kicker" style="margin:8px 0 0;color:#7a6b5d;">
-      非银内壁版本 · 图册规格待复核 · 单一 SKU 资料预览
-    </p>
-    <p class="sku-lock-note" style="margin:12px 0 0;color:#7a6b5d;">
-      当前只围绕这一款推进，不提供版本选择。
-    </p>
-
-    <div
-      class="preview-commerce-boundary"
-      data-hidden-modules="price inventory purchase-buttons variants reviews recommendations delivery offers">
-      <strong>当前阶段不展示价格、库存、购买按钮、变体、评论、推荐商品、交期或可售结构化数据。</strong>
-      <p style="margin:8px 0 0;">价格与可购买信息只会在样品到手、关键资料复核完成，并经 CEO / board 明确批准后再进入下一阶段。</p>
-    </div>
-
-    <div id="notify-interest" class="notify-interest" style="background:#f7f3ee;padding:16px;border:1px solid #dbcbbd;">
-      <h3 style="margin-top:0;">到货通知</h3>
-      <p style="margin-top:0;">当前为资料预览阶段。留下邮箱后，如这款产品有后续公开更新，我们会通过邮箱发送到货通知和相关资料更新。</p>
-      {%- form 'customer' -%}
-        <input type="hidden" name="contact[tags]" value="{{ notify_tag }}">
-        <input
-          type="email"
-          name="contact[email]"
-          placeholder="输入邮箱，接收这款的到货通知"
-          required
-          style="min-width:240px;padding:10px;border:1px solid #cdbcae;margin-right:8px;">
-        <button type="submit" class="btn-notify" style="padding:10px 16px;background:#4d3727;color:#fff;border:0;">
-          到货通知我
-        </button>
-        <p style="margin:12px 0 0;color:#7a6b5d;font-size:13px;">邮箱仅用于这款产品的到货通知和相关公开更新。这不是购买页提交，不代表预订、候补或购买资格；如不再需要，可在邮件中取消订阅。</p>
-        <p style="margin:8px 0 0;color:#7a6b5d;font-size:13px;">当前阶段说明：这不是购买页，不开售，也不开放预订或候补。</p>
-        {%- if form.posted_successfully? -%}
-          <p style="margin-bottom:0;color:#2f6f3e;">提交成功。后续如这款产品有公开更新，我们会通过邮箱通知你；这次提交不代表预订或候补资格。</p>
-        {%- endif -%}
-        {%- if form.errors -%}
-          <p style="margin-bottom:0;color:#a94442;">请填写有效邮箱后再提交。</p>
-        {%- endif -%}
-      {%- endform -%}
-    </div>
-
-    <div class="product-description">
-      {%- if product.description != blank -%}
-        {{ product.description }}
-      {%- else -%}
-        <div class="default-preview-copy">
-          <p>这把紫铜水瓶手冲咖啡壶当前处于资料预览阶段。当前可公开信息包括紫铜壶体、非银内壁版本、水瓶型轮廓，以及图册资料显示的基础规格。</p>
-          <p>当前页面只用于资料预览和到货通知，不开放正式下单。</p>
-          <p>后续如这款产品有公开更新，我们会补充实拍、规格复核结果和页面状态说明。</p>
-        </div>
-      {%- endif -%}
-    </div>
-
-    <div class="product-specs">
-      <h3>规格参数</h3>
-      <table>
-        <tr><th>壶体材质</th><td>紫铜（非银内壁版本）</td></tr>
-        <tr><th>壶盖材质</th><td>紫铜（资料显示 / 待样品复核）</td></tr>
-        <tr><th>把手/盖钮</th><td>电木（资料显示 / 待样品复核）</td></tr>
-        <tr><th>容量</th><td>500 cc（资料显示 / 待样品复核）</td></tr>
-        <tr><th>口径</th><td>5 cm（资料显示 / 待样品复核）</td></tr>
-        <tr><th>底径</th><td>6.1 cm（资料显示 / 待样品复核）</td></tr>
-        <tr><th>高度</th><td>15.6 cm（资料显示 / 待样品复核）</td></tr>
-      </table>
-    </div>
-
-    <div class="product-transparency" style="margin-top:24px;padding:16px;background:#f7f3ee;border:1px solid #dbcbbd;">
-      <h3 style="margin-top:0;">为什么现在只开放通知</h3>
-      <p>这款目前还处于零送样资料阶段。先保留到货通知，是为了只公开已经锁定或可明确标注待复核的信息，避免把未验证内容包装成购买承诺。</p>
-      <p style="margin-bottom:0;">后续如有公开更新，会优先补充实拍、规格复核结果和页面状态说明。</p>
-    </div>
-
-    <div class="product-faq" style="margin-top:24px;">
-      <h3>常见问题</h3>
-      <details style="margin-bottom:12px;">
-        <summary>现在可以直接买吗？</summary>
-        <p>不能。当前阶段只开放到货通知，不开放正式下单；这不是购买页。</p>
-      </details>
-      <details style="margin-bottom:12px;">
-        <summary>这是购买页吗？</summary>
-        <p>不是。当前页面是 preview-only 的资料预览页，只用于展示已知资料和接收到货通知。</p>
-      </details>
-      <details style="margin-bottom:12px;">
-        <summary>可以先预订、预约或候补吗？</summary>
-        <p>不能。当前不做预订、预约或候补，也不会因为先提交邮箱而获得排队或优先购买资格。</p>
-      </details>
-      <details style="margin-bottom:12px;">
-        <summary>这是银内壁款吗？</summary>
-        <p>不是。当前锁定的是非银内壁版本，不会使用银内壁、镀银内壁或 999 银内壁卖点。</p>
-      </details>
-      <details style="margin-bottom:12px;">
-        <summary>当前页面对应几款产品？</summary>
-        <p>只对应一款紫铜水瓶手冲咖啡壶。当前不扩 SKU，也不提供容量或把手材质版本选择。</p>
-      </details>
-      <details style="margin-bottom:12px;">
-        <summary>现在能看到实拍吗？</summary>
-        <p>还不能。当前页面使用资料图或占位图，样品到手后才会补充实拍。</p>
-      </details>
-      <details style="margin-bottom:12px;">
-        <summary>规格已经确定了吗？</summary>
-        <p>图册资料显示容量 500 cc、口径 5 cm、底径 6.1 cm、高度 15.6 cm，正式发布前仍需样品复核。</p>
-      </details>
-      <details>
-        <summary>留下邮箱会用于什么？</summary>
-        <p>只用于这款产品的到货通知和相关公开更新。这不是购买页提交，不代表预订、候补或购买资格；如不再需要，可在邮件中取消订阅。</p>
-      </details>
-    </div>
-  </div>
-
+  {% render 'preview-product-dossier',
+    preview_title: product.title,
+    material_note: material_note,
+    notify_tag: notify_tag,
+    preview_description_html: preview_description_html,
+    preview_featured_image: product.featured_image,
+    media_alt: product.featured_image.alt,
+    notify_anchor_id: 'notify-interest'
+  %}
 </div>

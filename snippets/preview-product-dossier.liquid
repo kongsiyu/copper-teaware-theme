@@ -1,0 +1,497 @@
+{% liquid
+  assign preview_title_text = preview_title | default: '紫铜水瓶手冲咖啡壶'
+  assign preview_material_note = material_note | default: '紫铜壶体，非银内壁版本'
+  assign preview_notify_tag = notify_tag | default: 'notify-copper-bottle-pour-over-kettle'
+  assign preview_media_badge_text = media_badge | default: '资料图 / 占位图 / 待实拍'
+  assign preview_notify_anchor = notify_anchor_id | default: 'notify-interest'
+  assign preview_media_alt_text = media_alt | default: preview_title_text | append: ' — 资料图 / 待实拍'
+  assign preview_kicker_text = preview_kicker | default: '非银内壁版本 · 图册规格待复核 · 单一 SKU 资料预览'
+%}
+
+<style>
+  .preview-product {
+    --preview-bg: #f5efe6;
+    --preview-card: rgba(255, 249, 241, 0.94);
+    --preview-card-strong: #f7f3ee;
+    --preview-text: #2b211a;
+    --preview-muted: #6f6258;
+    --preview-line: #d8c7b5;
+    --preview-accent: #4d3727;
+    --preview-tag: #496b5d;
+    background:
+      radial-gradient(circle at top right, rgba(73, 107, 93, 0.12), transparent 34%),
+      linear-gradient(180deg, #f8f2ea 0%, #f5efe6 100%);
+    color: var(--preview-text);
+    padding: 40px 0 72px;
+  }
+
+  .preview-product__container {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+  }
+
+  .preview-product__status,
+  .preview-product__link-strip,
+  .preview-product__details,
+  .preview-product__media-card,
+  .preview-product__card,
+  .preview-product__faq,
+  .preview-product__boundary,
+  .preview-product__notify {
+    border: 1px solid var(--preview-line);
+    background: var(--preview-card);
+  }
+
+  .preview-product__status {
+    margin-bottom: 18px;
+    padding: 12px 16px;
+    color: var(--preview-accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .preview-product__link-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+  }
+
+  .preview-product__link-strip a,
+  .preview-product__faq a {
+    color: var(--preview-accent);
+    text-decoration: none;
+  }
+
+  .preview-product__layout,
+  .preview-product__grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .preview-product__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.95fr);
+    align-items: start;
+  }
+
+  .preview-product__details {
+    padding: 28px;
+  }
+
+  .preview-product__media-card {
+    position: relative;
+    min-height: 540px;
+    overflow: hidden;
+  }
+
+  .preview-product__media-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .preview-product__media-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 1;
+    padding: 8px 12px;
+    background: rgba(43, 33, 26, 0.84);
+    color: #fff9f1;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .preview-product__placeholder {
+    display: flex;
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: linear-gradient(135deg, #efe3d4 0%, #f8f2ea 100%);
+    color: var(--preview-muted);
+    text-align: center;
+  }
+
+  .preview-product__media-note {
+    margin: 14px 0 0;
+    color: var(--preview-muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .preview-product__eyebrow {
+    margin: 0 0 10px;
+    color: var(--preview-tag);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .preview-product__title {
+    margin: 0;
+    font-family: "Iowan Old Style", "Noto Serif SC", "Songti SC", serif;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.02;
+  }
+
+  .preview-product__meta-tag {
+    display: inline-flex;
+    margin-top: 16px;
+    padding: 8px 12px;
+    border: 1px solid var(--preview-line);
+    color: var(--preview-accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .preview-product__kicker,
+  .preview-product__lock-note,
+  .preview-product__description p,
+  .preview-product__card p,
+  .preview-product__card li,
+  .preview-product__notify p,
+  .preview-product__faq p {
+    color: var(--preview-text);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .preview-product__kicker,
+  .preview-product__lock-note,
+  .preview-product__fineprint {
+    color: var(--preview-muted);
+  }
+
+  .preview-product__kicker {
+    margin: 12px 0 0;
+  }
+
+  .preview-product__lock-note {
+    margin: 10px 0 0;
+  }
+
+  .preview-product__boundary {
+    margin-top: 22px;
+    padding: 18px 20px;
+  }
+
+  .preview-product__boundary strong {
+    display: block;
+    line-height: 1.6;
+  }
+
+  .preview-product__boundary p {
+    margin: 10px 0 0;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .preview-product__notify {
+    margin-top: 22px;
+    padding: 20px;
+  }
+
+  .preview-product__notify h2,
+  .preview-product__card h2,
+  .preview-product__faq h2 {
+    margin: 0 0 10px;
+    font-family: "Iowan Old Style", "Noto Serif SC", "Songti SC", serif;
+    line-height: 1.2;
+  }
+
+  .preview-product__notify h2 {
+    font-size: 30px;
+  }
+
+  .preview-product__notify-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .preview-product__notify-form input[type="email"] {
+    flex: 1 1 260px;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid var(--preview-line);
+    background: #fff;
+    color: var(--preview-text);
+  }
+
+  .preview-product__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border: 0;
+    background: var(--preview-accent);
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .preview-product__fineprint,
+  .preview-product__form-message {
+    margin: 12px 0 0;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .preview-product__form-message.is-success {
+    color: #2f6f3e;
+  }
+
+  .preview-product__form-message.is-error {
+    color: #a94442;
+  }
+
+  .preview-product__description {
+    margin-top: 24px;
+  }
+
+  .preview-product__description p,
+  .preview-product__faq p {
+    margin: 0 0 14px;
+  }
+
+  .preview-product__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 24px;
+  }
+
+  .preview-product__card {
+    padding: 24px;
+  }
+
+  .preview-product__card h2 {
+    font-size: 30px;
+  }
+
+  .preview-product__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .preview-product__table th,
+  .preview-product__table td {
+    border: 1px solid var(--preview-line);
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .preview-product__table th {
+    width: 32%;
+    background: #f3eadf;
+  }
+
+  .preview-product__faq {
+    margin-top: 24px;
+    padding: 24px;
+  }
+
+  .preview-product__faq-grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .preview-product__faq details {
+    padding: 14px 16px;
+    background: var(--preview-card-strong);
+    border: 1px solid var(--preview-line);
+  }
+
+  .preview-product__faq summary {
+    cursor: pointer;
+    font-weight: 700;
+    line-height: 1.6;
+  }
+
+  .preview-product__faq summary + p {
+    margin-top: 12px;
+  }
+
+  @media screen and (max-width: 989px) {
+    .preview-product__layout,
+    .preview-product__grid,
+    .preview-product__faq-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .preview-product__media-card {
+      min-height: 360px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .preview-product {
+      padding: 28px 0 56px;
+    }
+
+    .preview-product__container {
+      width: min(100%, calc(100% - 24px));
+    }
+
+    .preview-product__details,
+    .preview-product__card,
+    .preview-product__faq,
+    .preview-product__notify {
+      padding: 20px;
+    }
+
+    .preview-product__table th,
+    .preview-product__table td {
+      display: block;
+      width: 100%;
+    }
+  }
+</style>
+
+<div class="preview-product__container">
+  <div class="preview-product__status">资料预览：样品待验收，当前仅开放到货通知，这不是购买页。</div>
+
+  <div class="preview-product__link-strip">
+    <a href="/pages/preview-stage">当前阶段说明</a>
+    <a href="/pages/research-notes">研究记录</a>
+    <a href="/pages/faq">常见问题</a>
+  </div>
+
+  <div class="preview-product__layout">
+    <div class="preview-product__media-card">
+      <span class="preview-product__media-badge">{{ preview_media_badge_text }}</span>
+      {%- if preview_featured_image != blank -%}
+        {{ preview_featured_image | image_url: width: 1440 | image_tag: alt: preview_media_alt_text }}
+      {%- else -%}
+        <div class="preview-product__placeholder">
+          <div>
+            <strong>资料图待挂载</strong>
+            <p style="margin:10px 0 0;">当前可先使用带显性角标的占位图或资料图，不允许伪装成实拍。</p>
+          </div>
+        </div>
+      {%- endif -%}
+      <p class="preview-product__media-note">当前展示为资料图或占位图，不代表实拍。</p>
+    </div>
+
+    <div class="preview-product__details">
+      <p class="preview-product__eyebrow">Archive Preview</p>
+      <h1 class="preview-product__title">{{ preview_title_text }}</h1>
+      <span class="preview-product__meta-tag">{{ preview_material_note }}</span>
+      <p class="preview-product__kicker">{{ preview_kicker_text }}</p>
+      <p class="preview-product__lock-note">当前只围绕这一款推进，不提供版本选择。</p>
+
+      <div
+        class="preview-product__boundary"
+        data-hidden-modules="price inventory purchase-buttons variants reviews recommendations delivery offers">
+        <strong>当前阶段不展示价格、库存、购买按钮、变体、评论、推荐商品、交期或可售结构化数据。</strong>
+        <p>价格与可购买信息只会在样品到手、关键资料复核完成，并经 CEO / board 明确批准后再进入下一阶段。</p>
+      </div>
+
+      <div id="{{ preview_notify_anchor }}" class="preview-product__notify">
+        <p class="preview-product__eyebrow">Notify Only</p>
+        <h2>留下邮箱，接收后续公开更新</h2>
+        <p>当前为资料预览阶段。留下邮箱后，如这款产品有后续公开更新，我们会通过邮箱发送到货通知和相关资料更新。</p>
+        {%- form 'customer' -%}
+          <input type="hidden" name="contact[tags]" value="{{ preview_notify_tag }}">
+          <div class="preview-product__notify-form">
+            <input type="email" name="contact[email]" placeholder="输入邮箱，接收这款的到货通知" required>
+            <button type="submit" class="preview-product__button">到货通知我</button>
+          </div>
+          <p class="preview-product__fineprint">邮箱仅用于这款产品的到货通知和相关公开更新。这不是购买页提交，不代表预订、候补或购买资格；如不再需要，可在邮件中取消订阅。</p>
+          <p class="preview-product__fineprint">当前阶段说明：这不是购买页，不开售，也不开放预订或候补。</p>
+          {%- if form.posted_successfully? -%}
+            <p class="preview-product__form-message is-success">提交成功。后续如这款产品有公开更新，我们会通过邮箱通知你；这次提交不代表预订或候补资格。</p>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <p class="preview-product__form-message is-error">请填写有效邮箱后再提交。</p>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+
+      <div class="preview-product__description">
+        {%- if preview_description_html != blank -%}
+          {{ preview_description_html }}
+        {%- else -%}
+          <div class="default-preview-copy">
+            <p>这把紫铜水瓶手冲咖啡壶当前处于资料预览阶段。当前可公开信息包括紫铜壶体、非银内壁版本、水瓶型轮廓，以及图册资料显示的基础规格。</p>
+            <p>当前页面只用于资料预览和到货通知，不开放正式下单。</p>
+            <p>后续如这款产品有公开更新，我们会补充实拍、规格复核结果和页面状态说明。</p>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="preview-product__grid">
+    <div class="preview-product__card">
+      <p class="preview-product__eyebrow">规格参数</p>
+      <h2>当前可公开的资料字段</h2>
+      <table class="preview-product__table">
+        <tr><th>壶体材质</th><td>紫铜（非银内壁版本）</td></tr>
+        <tr><th>壶盖材质</th><td>紫铜（资料显示 / 待样品复核）</td></tr>
+        <tr><th>把手/盖钮</th><td>电木（资料显示 / 待样品复核）</td></tr>
+        <tr><th>容量</th><td>500 cc（资料显示 / 待样品复核）</td></tr>
+        <tr><th>口径</th><td>5 cm（资料显示 / 待样品复核）</td></tr>
+        <tr><th>底径</th><td>6.1 cm（资料显示 / 待样品复核）</td></tr>
+        <tr><th>高度</th><td>15.6 cm（资料显示 / 待样品复核）</td></tr>
+      </table>
+    </div>
+
+    <div class="preview-product__card">
+      <p class="preview-product__eyebrow">透明说明</p>
+      <h2>为什么现在只开放通知</h2>
+      <p>这款目前还处于零送样资料阶段。先保留到货通知，是为了只公开已经锁定或可明确标注待复核的信息，避免把未验证内容包装成购买承诺。</p>
+      <p>后续如有公开更新，会优先补充实拍、规格复核结果和页面状态说明。</p>
+      <ul>
+        <li>不写银内壁、镀银内壁或 999 银内壁。</li>
+        <li>不写食品级、检测通过、精准控流或专业级表现。</li>
+        <li>不写预售、预约、候补、锁库存或锁名额。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="preview-product__faq">
+    <p class="preview-product__eyebrow">FAQ</p>
+    <h2>把误解拦在资料页里</h2>
+    <div class="preview-product__faq-grid">
+      <details>
+        <summary>现在可以直接买吗？</summary>
+        <p>不能。当前阶段只开放到货通知，不开放正式下单；这不是购买页。</p>
+      </details>
+      <details>
+        <summary>可以先预订、预约或候补吗？</summary>
+        <p>不能。当前不做预订、预约或候补，也不会因为先提交邮箱而获得排队或优先购买资格。</p>
+      </details>
+      <details>
+        <summary>这是银内壁款吗？</summary>
+        <p>不是。当前锁定的是非银内壁版本，不会使用银内壁、镀银内壁或 999 银内壁卖点。</p>
+      </details>
+      <details>
+        <summary>当前页面对应几款产品？</summary>
+        <p>只对应一款紫铜水瓶手冲咖啡壶。当前不扩 SKU，也不提供容量或把手材质版本选择。</p>
+      </details>
+      <details>
+        <summary>现在能看到实拍吗？</summary>
+        <p>还不能。当前页面使用资料图或占位图，样品到手后才会补充实拍。</p>
+      </details>
+      <details>
+        <summary>规格已经确定了吗？</summary>
+        <p>图册资料显示容量 500 cc、口径 5 cm、底径 6.1 cm、高度 15.6 cm，正式发布前仍需样品复核。</p>
+      </details>
+    </div>
+    <p style="margin:16px 0 0;"><a href="/pages/faq">查看完整 FAQ</a></p>
+  </div>
+</div>
