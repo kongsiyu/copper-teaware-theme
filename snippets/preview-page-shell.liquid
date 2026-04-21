@@ -10,59 +10,31 @@
   endif
 %}
 
+{% render 'preview-launch-theme' %}
+
 <style>
   .preview-doc {
-    --preview-bg: #f5efe6;
-    --preview-card: #fff9f1;
-    --preview-text: #2b211a;
-    --preview-muted: #6f6258;
-    --preview-line: #d8c7b5;
-    --preview-accent: #4d3727;
-    --preview-tag: #496b5d;
-    background: linear-gradient(180deg, #f8f2ea 0%, #f5efe6 100%);
-    color: var(--preview-text);
-    padding: 48px 20px 72px;
+    padding: 40px 0 72px;
   }
 
   .preview-doc__container {
+    width: min(var(--lp-max), calc(100% - 32px));
     margin: 0 auto;
-    max-width: 1120px;
   }
 
   .preview-doc__hero {
-    margin-bottom: 28px;
-    padding: 28px;
-    background: rgba(255, 249, 241, 0.92);
-    border: 1px solid var(--preview-line);
-  }
-
-  .preview-doc__eyebrow {
-    margin: 0 0 10px;
-    color: var(--preview-tag);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .preview-doc__hero h1 {
-    margin: 0;
-    font-size: clamp(32px, 5vw, 54px);
-    line-height: 1.08;
+    margin-bottom: 24px;
+    padding: 30px;
   }
 
   .preview-doc__intro {
-    margin: 16px 0 0;
-    max-width: 760px;
-    color: var(--preview-muted);
-    font-size: 18px;
-    line-height: 1.7;
+    max-width: 58ch;
   }
 
   .preview-doc__layout {
     display: grid;
     gap: 24px;
-    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+    grid-template-columns: minmax(0, 1.55fr) minmax(280px, 0.85fr);
     align-items: start;
   }
 
@@ -73,39 +45,36 @@
   .preview-doc__main,
   .preview-doc__aside,
   .preview-doc__cta {
-    background: rgba(255, 249, 241, 0.92);
-    border: 1px solid var(--preview-line);
+    padding: 30px;
   }
 
   .preview-doc__main {
-    padding: 28px;
+    display: grid;
+    gap: 16px;
   }
 
   .preview-doc__main h2,
   .preview-doc__main h3 {
-    margin: 0 0 14px;
-    line-height: 1.25;
+    margin: 0;
+    font-family: var(--lp-serif);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
   }
 
   .preview-doc__main h2 {
-    margin-top: 28px;
-    font-size: 28px;
-  }
-
-  .preview-doc__main h2:first-child {
-    margin-top: 0;
+    margin-top: 10px;
+    font-size: clamp(28px, 3vw, 38px);
   }
 
   .preview-doc__main h3 {
-    margin-top: 22px;
-    font-size: 20px;
+    margin-top: 6px;
+    font-size: 22px;
   }
 
   .preview-doc__main p,
   .preview-doc__main li,
   .preview-doc__aside p,
   .preview-doc__aside li {
-    color: var(--preview-text);
     font-size: 16px;
     line-height: 1.75;
   }
@@ -129,7 +98,7 @@
   .preview-doc__main a,
   .preview-doc__aside a,
   .preview-doc__cta a {
-    color: var(--preview-accent);
+    color: var(--lp-accent);
   }
 
   .preview-doc__main table {
@@ -139,21 +108,29 @@
 
   .preview-doc__main th,
   .preview-doc__main td {
-    border: 1px solid var(--preview-line);
-    padding: 12px 14px;
+    border-top: 1px solid var(--lp-line);
+    padding: 14px 0;
     text-align: left;
     vertical-align: top;
   }
 
+  .preview-doc__main tr:first-child th,
+  .preview-doc__main tr:first-child td {
+    border-top: 0;
+    padding-top: 0;
+  }
+
   .preview-doc__main th {
     width: 30%;
-    background: #f3eadf;
+    padding-right: 16px;
+    font-weight: 600;
   }
 
   .preview-doc__main details {
-    padding: 14px 16px;
-    background: #f7f3ee;
-    border: 1px solid var(--preview-line);
+    padding: 16px 0;
+    background: transparent;
+    border: 0;
+    border-top: 1px solid var(--lp-line);
   }
 
   .preview-doc__main summary {
@@ -166,62 +143,78 @@
   }
 
   .preview-doc__aside {
-    padding: 24px;
+    display: grid;
+    gap: 16px;
   }
 
   .preview-doc__aside h2 {
-    margin: 0 0 14px;
-    font-size: 20px;
+    margin: 0;
+    font-family: var(--lp-serif);
+    font-size: 24px;
+    line-height: 1.15;
   }
 
   .preview-doc__tag {
-    display: inline-block;
-    margin: 0 8px 10px 0;
-    padding: 6px 10px;
-    border: 1px solid var(--preview-line);
-    color: var(--preview-tag);
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    margin: 0 8px 8px 0;
+    padding: 0 14px;
+    border: 1px solid var(--lp-line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--lp-accent-strong);
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
   .preview-doc__cta {
     margin-top: 24px;
-    padding: 24px 28px;
+    display: grid;
+    gap: 14px;
   }
 
   .preview-doc__cta h2 {
-    margin: 0 0 10px;
-    font-size: 24px;
+    margin: 0;
+    font-family: var(--lp-serif);
+    font-size: clamp(26px, 3vw, 34px);
+    line-height: 1.15;
   }
 
   .preview-doc__cta p {
     margin: 0;
-    color: var(--preview-muted);
+    color: var(--lp-muted);
     font-size: 16px;
     line-height: 1.7;
   }
 
   .preview-doc__cta .button {
     display: inline-block;
-    margin-top: 16px;
-    padding: 12px 18px;
-    background: var(--preview-accent);
+    width: fit-content;
+    min-height: 48px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: var(--lp-accent);
     color: #fff;
     text-decoration: none;
   }
 
   @media screen and (max-width: 749px) {
     .preview-doc {
-      padding: 32px 16px 56px;
+      padding: 28px 0 56px;
+    }
+
+    .preview-doc__container {
+      width: min(var(--lp-max), calc(100% - 24px));
     }
 
     .preview-doc__hero,
     .preview-doc__main,
     .preview-doc__aside,
     .preview-doc__cta {
-      padding: 20px;
+      padding: 22px;
     }
 
     .preview-doc__layout {
@@ -238,23 +231,23 @@
 
 <div class="preview-doc">
   <div class="preview-doc__container">
-    <header class="preview-doc__hero">
+    <header class="launch-preview__surface preview-doc__hero">
       {%- if eyebrow != blank -%}
-        <p class="preview-doc__eyebrow">{{ eyebrow }}</p>
+        <p class="launch-preview__eyebrow">{{ eyebrow }}</p>
       {%- endif -%}
-      <h1>{{ shell_title }}</h1>
+      <h1 class="launch-preview__title launch-preview__title--lg">{{ shell_title }}</h1>
       {%- if intro != blank -%}
-        <p class="preview-doc__intro">{{ intro }}</p>
+        <p class="launch-preview__lead preview-doc__intro">{{ intro }}</p>
       {%- endif -%}
     </header>
 
     <div class="preview-doc__layout{% if aside_html == blank %} is-single{% endif %}">
-      <div class="preview-doc__main">
+      <div class="launch-preview__surface preview-doc__main">
         {{ shell_body }}
       </div>
 
       {%- if aside_html != blank -%}
-        <aside class="preview-doc__aside">
+        <aside class="launch-preview__surface preview-doc__aside">
           {%- if aside_title != blank -%}
             <h2>{{ aside_title }}</h2>
           {%- endif -%}
@@ -264,7 +257,7 @@
     </div>
 
     {%- if cta_title != blank or cta_text != blank -%}
-      <section class="preview-doc__cta">
+      <section class="launch-preview__surface preview-doc__cta">
         {%- if cta_title != blank -%}
           <h2>{{ cta_title }}</h2>
         {%- endif -%}

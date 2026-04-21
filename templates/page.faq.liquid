@@ -1,83 +1,83 @@
 {% capture default_body_html %}
-  <h2>阶段与购买</h2>
+  <h2>Stage And Availability</h2>
 
   <details>
-    <summary>现在可以直接买吗？</summary>
-    <p>不能。当前阶段只开放到货通知，不开放正式下单；这不是购买页。</p>
+    <summary>Can I buy it now?</summary>
+    <p>No. This preview is notify-only for now, so pricing and checkout are not live.</p>
   </details>
 
   <details>
-    <summary>这是购买页或预售页吗？</summary>
-    <p>不是。当前店铺处于 preview-only 阶段，前台页面只用于展示已知资料和接收到货通知。</p>
+    <summary>Is this a live launch page or a preorder page?</summary>
+    <p>No. The site is in product-preview mode, so the frontstage surface only shows the object, the current boundaries, and the update sign-up.</p>
   </details>
 
   <details>
-    <summary>可以先预订、预约或候补吗？</summary>
-    <p>不能。当前不做预订、预约或候补，也不会因为先提交邮箱而获得排队或优先购买资格。</p>
+    <summary>Can I join a preorder or waitlist?</summary>
+    <p>No. There is no preorder, waitlist, or reservation mechanic in this stage.</p>
   </details>
 
   <details>
-    <summary>为什么现在不公开价格、库存和交期？</summary>
-    <p>因为样品还未完成验收，价格、库存、交期和交易承诺都不应该在这个阶段对外展示。</p>
+    <summary>Why are price, inventory, and shipping timing not shown?</summary>
+    <p>Sample review is still pending, so live commerce details stay offstage until the review-backed version is ready.</p>
   </details>
 
-  <h2>产品事实</h2>
+  <h2>Product Facts</h2>
 
   <details>
-    <summary>这是银内壁款吗？</summary>
-    <p>不是。当前锁定的是非银内壁版本，页面和内容不会使用银内壁、镀银内壁或 999 银内壁卖点。</p>
-  </details>
-
-  <details>
-    <summary>当前页面对应几款产品？</summary>
-    <p>只对应一款紫铜水瓶手冲咖啡壶。当前不扩 SKU，也不提供容量或把手材质版本选择。</p>
+    <summary>Is this the silver-lined version?</summary>
+    <p>No. This preview is for the non-silver-lined version.</p>
   </details>
 
   <details>
-    <summary>现在能看到实拍吗？</summary>
-    <p>还不能。当前页面使用资料图或占位图，样品到手后才会补充实拍。</p>
+    <summary>How many products does this page represent?</summary>
+    <p>One product only. The current preview does not branch into multiple versions, capacities, or bundles.</p>
   </details>
 
   <details>
-    <summary>规格已经确定了吗？</summary>
-    <p>图册资料显示容量 500 cc、口径 5 cm、底径 6.1 cm、高度 15.6 cm，正式发布前仍需样品复核。</p>
-  </details>
-
-  <h2>通知与隐私</h2>
-
-  <details>
-    <summary>留下邮箱会用于什么？</summary>
-    <p>只用于这款产品的到货通知和相关公开更新。这不是购买页提交，不代表预订、候补或购买资格；如不再需要，可在邮件中取消订阅。</p>
+    <summary>Are the images final product photos?</summary>
+    <p>No. The page uses reference imagery or placeholders until review-backed photography is ready.</p>
   </details>
 
   <details>
-    <summary>为什么还保留通知表单？</summary>
-    <p>因为当前唯一允许的用户动作就是接收后续公开更新。这样既能观察用户是否理解资料边界，也不会提前形成交易承诺。</p>
+    <summary>Are the specs final?</summary>
+    <p>Not yet. The current dimensions are shown as catalog-listed details and remain pending sample review.</p>
+  </details>
+
+  <h2>Updates And Privacy</h2>
+
+  <details>
+    <summary>What is my email used for?</summary>
+    <p>Your email is used for updates on this product only. It does not create a reservation or purchase commitment, and you can unsubscribe later.</p>
+  </details>
+
+  <details>
+    <summary>Why keep a sign-up form if the product is not live yet?</summary>
+    <p>Because updates are the only low-commitment action the preview should support right now. It helps measure interest without creating a transaction promise.</p>
   </details>
 {% endcapture %}
 
 {% capture aside_html %}
-  <span class="preview-doc__tag">faq</span>
-  <span class="preview-doc__tag">notify-only</span>
-  <p>如果你想先看完整资料边界，可以从这两个入口继续：</p>
+  <span class="preview-doc__tag">FAQ</span>
+  <span class="preview-doc__tag">Notify Only</span>
+  <p>If you want to move through the preview surface in order, use these entry points:</p>
   <ul>
-    <li><a href="/pages/preview-stage">当前阶段说明</a></li>
-    <li><a href="/pages/research-notes">研究记录</a></li>
-    <li><a href="/pages/copper-kettle-preview">返回产品资料页</a></li>
+    <li><a href="/pages/preview-stage">Preview Terms</a></li>
+    <li><a href="/pages/copper-kettle-preview">Product Details</a></li>
+    <li><a href="{{ routes.root_url }}">Home</a></li>
   </ul>
 {% endcapture %}
 
 {% render 'preview-page-shell',
   eyebrow: 'Frequently Asked Questions',
-  title: '常见问题',
-  intro: 'FAQ 只回答当前阶段能公开确认的问题，不会替代样品验收，也不会提前给出销售或履约承诺。',
+  title: 'Questions We Can Answer Now',
+  intro: 'These answers cover the current preview surface only. Final launch details will be added after sample review, not before.',
   page_title: page.title,
   page_content: page.content,
   body_html: default_body_html,
-  aside_title: '相关入口',
+  aside_title: 'Preview Paths',
   aside_html: aside_html,
-  cta_title: '还需要接收这款的后续更新？',
-  cta_text: '可以直接前往产品资料页或首页通知入口留下邮箱。当前阶段不会因为提交邮箱而锁定库存或购买资格。',
-  cta_label: '前往公开资料页',
+  cta_title: 'Need the actual product surface next?',
+  cta_text: 'The product details page applies the same boundaries inside the single-product preview layout and keeps the sign-up live.',
+  cta_label: 'View Product Details',
   cta_link: '/pages/copper-kettle-preview'
 %}

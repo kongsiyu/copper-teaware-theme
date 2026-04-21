@@ -5,11 +5,9 @@
 {% endcomment %}
 
 {% capture default_preview_description_html %}
-  <div class="default-preview-copy">
-    <p>这把紫铜水瓶手冲咖啡壶当前处于资料预览阶段。当前可公开信息包括紫铜壶体、非银内壁版本、水瓶型轮廓，以及图册资料显示的基础规格。</p>
-    <p>当前页面只用于资料预览和到货通知，不开放正式下单。</p>
-    <p>后续如这款产品有公开更新，我们会补充实拍、规格复核结果和页面状态说明。</p>
-  </div>
+  <p>This page shows the non-silver-lined version as a structured product preview, with reference imagery and catalog-listed details kept clearly labeled.</p>
+  <p>It is built to explain the object first, then the evidence that can be shown now, and finally the low-commitment sign-up for product updates.</p>
+  <p>Pricing, availability, and review-backed details will only appear after sample review is complete.</p>
 {% endcapture %}
 
 {% liquid
@@ -24,10 +22,12 @@
   data-preview-surface="public-page"
   data-preview-route="/pages/copper-kettle-preview">
   {% render 'preview-product-dossier',
-    preview_title: '紫铜水瓶手冲咖啡壶',
-    material_note: '紫铜壶体，非银内壁版本',
+    preview_title: 'Copper Pour-Over Kettle With a Bottle-Shaped Silhouette',
+    material_note: 'Copper body',
     notify_tag: 'notify-copper-bottle-pour-over-kettle',
     preview_description_html: preview_description_html,
+    preview_kicker: 'Non-silver-lined version. Catalog-listed specs. Pending sample review.',
+    media_badge: 'Reference image / placeholder',
     notify_anchor_id: 'notify-interest'
   %}
 </div>

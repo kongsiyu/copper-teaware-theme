@@ -1,80 +1,75 @@
 {% capture default_body_html %}
-  <h2>当前公开范围</h2>
-  <p>这家店当前只把自己呈现为一个资料预览型店铺。前台会说明我们关注铜器茶具、咖具与餐具，但首期真正对外承接的只有一款产品：紫铜水瓶手冲咖啡壶，非银内壁版本。</p>
+  <h2>What This Preview Is For</h2>
+  <p>This site acts as a single-product launch preview for one copper pour-over kettle. It is designed to clarify the object, the current boundaries, and the only live action: product updates.</p>
   <ul>
-    <li>首页用于说明当前阶段、店铺方向和唯一可行动作。</li>
-    <li>公开资料页用于展示单品资料、待复核字段和到货通知表单。</li>
-    <li>研究记录页用于解释为什么现在只有资料预览，没有正式销售承诺。</li>
-    <li>FAQ 页用于集中回答购买、通知和隐私相关问题。</li>
+    <li>The homepage frames the stage, the object, and the update sign-up.</li>
+    <li>The product details page explains the version, the listed specs, and the notify-only boundary.</li>
+    <li>The FAQ answers the questions that typically create purchase confusion too early.</li>
   </ul>
 
-  <h2>前台必须保持的边界</h2>
+  <h2>What The Frontstage Surface Shows</h2>
   <table>
     <thead>
       <tr>
-        <th>模块</th>
-        <th>当前状态</th>
+        <th>Surface</th>
+        <th>Current role</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th>价格 / 库存 / 交期</th>
-        <td>不展示，不形成购买或履约承诺。</td>
+        <th>Homepage</th>
+        <td>Sets the tone, reduces misread, and routes people to product details or the update form.</td>
       </tr>
       <tr>
-        <th>购买按钮 / 变体选择</th>
-        <td>关闭，只保留到货通知入口。</td>
+        <th>Product details</th>
+        <td>Shows the non-silver-lined version, the listed specs, and the current notify-only boundary.</td>
       </tr>
       <tr>
-        <th>图片状态</th>
-        <td>资料图、图册资料、轮廓示意或占位图都必须显性标注，不伪装成实拍。</td>
+        <th>FAQ</th>
+        <td>Answers what is live now, what is not, and what email sign-up actually means.</td>
       </tr>
       <tr>
-        <th>对外口径</th>
-        <td>只能使用 preview-only + notify-only 语义，不写预售、候补、锁名额或即将开售。</td>
-      </tr>
-      <tr>
-        <th>SKU 范围</th>
-        <td>只围绕当前这一款推进，不扩成多版本、多容量或系列导购。</td>
+        <th>Notify form</th>
+        <td>Captures low-commitment product updates only. It does not create a reservation or purchase path.</td>
       </tr>
     </tbody>
   </table>
 
-  <h2>到货通知意味着什么</h2>
-  <p>留下邮箱只表示你愿意接收这款产品的后续公开更新，例如资料补充、页面状态变化或到货通知。它不代表预订成功，也不锁定库存、购买资格或交付安排。</p>
-
-  <h2>哪些内容要等样品后再解锁</h2>
+  <h2>What Stays Offstage Until Review</h2>
   <ul>
-    <li>实拍图与更接近真实色泽的前台素材。</li>
-    <li>规格复核结果、材质细节和上手观察。</li>
-    <li>价格、库存、正式购买路径和履约信息。</li>
-    <li>评论、推荐商品、扩 SKU 或正式销售页模块。</li>
+    <li>Pricing, availability, shipping timing, and any live commerce promise</li>
+    <li>Preorder, waitlist, reservation, or early-access language</li>
+    <li>Performance, certification, or safety claims</li>
+    <li>Final measured details and approved close-up photography</li>
   </ul>
+
+  <h2>What Signing Up Means</h2>
+  <p>Leaving an email means you want product updates only. It does not reserve inventory, hold a place, or create a purchase obligation.</p>
 {% endcapture %}
 
 {% capture aside_html %}
-  <span class="preview-doc__tag">preview-only</span>
-  <span class="preview-doc__tag">notify-only</span>
-  <span class="preview-doc__tag">single sku</span>
-  <p>首屏先说明阶段，再展示商品；唯一转化动作是到货通知。</p>
+  <span class="preview-doc__tag">Product Preview</span>
+  <span class="preview-doc__tag">Notify Only</span>
+  <span class="preview-doc__tag">Single Product</span>
+  <p>This page exists to reduce confusion, not to create sales pressure.</p>
   <ul>
-    <li><a href="/pages/copper-kettle-preview">查看紫铜咖啡壶资料页</a></li>
-    <li><a href="/pages/research-notes">查看研究记录</a></li>
-    <li><a href="/pages/faq">查看常见问题</a></li>
+    <li><a href="/pages/copper-kettle-preview">Product Details</a></li>
+    <li><a href="/pages/faq">FAQ</a></li>
+    <li><a href="{{ routes.root_url }}">Home</a></li>
   </ul>
 {% endcapture %}
 
 {% render 'preview-page-shell',
-  eyebrow: '当前阶段说明',
-  title: '资料预览阶段说明',
-  intro: '当前店铺不作为正式销售站运行。它的任务是清楚说明资料边界、承接到货通知，并避免把未验证内容包装成购买承诺。',
+  eyebrow: 'Preview Terms',
+  title: 'Launch Boundaries for This Preview',
+  intro: 'This site is not operating as a live sales store. Its job is to introduce one product clearly, keep the boundaries visible, and route interest into updates only.',
   page_title: page.title,
   page_content: page.content,
   body_html: default_body_html,
-  aside_title: '前台检查点',
+  aside_title: 'Frontstage Checks',
   aside_html: aside_html,
-  cta_title: '留下邮箱，接收后续公开更新',
-  cta_text: '当前唯一允许的转化动作是到货通知。后续如果这款产品进入下一阶段，会通过页面或邮件同步。',
-  cta_label: '回到首页通知入口',
-  cta_link: '/#notify-cta'
+  cta_title: 'See the product page with these boundaries applied',
+  cta_text: 'The product details page shows the same preview terms inside the actual single-product surface.',
+  cta_label: 'View Product Details',
+  cta_link: '/pages/copper-kettle-preview'
 %}

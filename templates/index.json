@@ -12,12 +12,160 @@
     "preview-homepage": {
       "type": "preview-homepage",
       "settings": {
-        "hero_heading": "紫铜水瓶手冲咖啡壶",
-        "hero_subheading": "非银内壁版本 · 资料预览阶段",
-        "hero_body": "当前页面仅用于资料预览和到货通知，不开放正式下单。后续如有公开更新，会通过页面或邮件同步。",
+        "stage_note": "This launch preview introduces the non-silver-lined version with clearly labeled catalog details only.",
+        "hero_heading": "One Copper Kettle, Shown With Clear Boundaries",
+        "hero_subheading": "This preview focuses on the non-silver-lined version and catalog-listed specs while sample details are still under review.",
+        "hero_body": "This page is a product preview for the non-silver-lined version. Pricing, availability, and sample-verified details will only be added after review.",
+        "hero_microcopy": "For product updates only. No reservation or purchase commitment.",
+        "hero_primary_label": "Notify Me",
+        "hero_primary_link": "#notify-cta",
+        "hero_secondary_label": "See Product Details",
+        "hero_secondary_link": "/pages/copper-kettle-preview",
         "hero_image": "",
+        "hero_image_mobile": "",
+        "hero_image_status": "Reference image / placeholder",
+        "story_heading": "A bottle-shaped silhouette, shown as an object first.",
+        "story_body": "The form is the first reason to slow down. It reads more like a tabletop object than a gear-first tool, which is exactly why the page keeps the framing calm and specific.",
+        "story_body_secondary": "For now, the frontstage surface stays with what can be stated clearly: copper body, non-silver-lined version, and catalog-listed dimensions pending sample review.",
         "artifact_image": ""
-      }
+      },
+      "blocks": {
+        "reason_1": {
+          "type": "reason",
+          "settings": {
+            "title": "Bottle-shaped silhouette",
+            "copy": "The form gives the kettle an object-like presence before any performance claim enters the page."
+          }
+        },
+        "reason_2": {
+          "type": "reason",
+          "settings": {
+            "title": "Copper body",
+            "copy": "Material is described conservatively and kept separate from any unverified safety or performance language."
+          }
+        },
+        "reason_3": {
+          "type": "reason",
+          "settings": {
+            "title": "Catalog-listed specs",
+            "copy": "The listed dimensions stay visible, but always with an explicit review-pending label."
+          }
+        },
+        "proof_1": {
+          "type": "proof",
+          "settings": {
+            "label": "Non-silver-lined version",
+            "tone": "default"
+          }
+        },
+        "proof_2": {
+          "type": "proof",
+          "settings": {
+            "label": "Catalog-listed specs",
+            "tone": "sage"
+          }
+        },
+        "proof_3": {
+          "type": "proof",
+          "settings": {
+            "label": "Sample review pending",
+            "tone": "sand"
+          }
+        },
+        "proof_4": {
+          "type": "proof",
+          "settings": {
+            "label": "No preorder or waitlist",
+            "tone": "accent"
+          }
+        },
+        "spec_1": {
+          "type": "spec",
+          "settings": {
+            "label": "Version",
+            "value": "Non-silver-lined",
+            "status": "Pending sample review"
+          }
+        },
+        "spec_2": {
+          "type": "spec",
+          "settings": {
+            "label": "Capacity",
+            "value": "500 cc",
+            "status": "Catalog-listed"
+          }
+        },
+        "spec_3": {
+          "type": "spec",
+          "settings": {
+            "label": "Opening diameter",
+            "value": "5 cm",
+            "status": "Catalog-listed"
+          }
+        },
+        "spec_4": {
+          "type": "spec",
+          "settings": {
+            "label": "Base diameter",
+            "value": "6.1 cm",
+            "status": "Catalog-listed"
+          }
+        },
+        "spec_5": {
+          "type": "spec",
+          "settings": {
+            "label": "Height",
+            "value": "15.6 cm",
+            "status": "Catalog-listed"
+          }
+        },
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I buy it now?",
+            "answer": "No. This preview is notify-only for now, so pricing and checkout are not live."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Is this a preorder or waitlist?",
+            "answer": "No. Signing up only means you want product updates. It does not hold inventory or reserve a place."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "Is this the silver-lined version?",
+            "answer": "No. This preview is for the non-silver-lined version."
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "Are the specs final?",
+            "answer": "Not yet. The current dimensions are shown as catalog-listed details and remain pending sample review."
+          }
+        }
+      },
+      "block_order": [
+        "reason_1",
+        "reason_2",
+        "reason_3",
+        "proof_1",
+        "proof_2",
+        "proof_3",
+        "proof_4",
+        "spec_1",
+        "spec_2",
+        "spec_3",
+        "spec_4",
+        "spec_5",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4"
+      ]
     }
   },
   "order": [

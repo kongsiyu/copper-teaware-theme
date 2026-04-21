@@ -1,418 +1,450 @@
 {% liquid
   assign notify_tag = 'notify-copper-bottle-pour-over-kettle'
-  assign hero_heading = section.settings.hero_heading | default: '紫铜水瓶手冲咖啡壶'
-  assign hero_subheading = section.settings.hero_subheading | default: '非银内壁版本 · 资料预览阶段'
-  assign hero_body = section.settings.hero_body | default: '当前页面仅用于资料预览和到货通知，不开放正式下单。后续如有公开更新，会通过页面或邮件同步。'
+  assign stage_note = section.settings.stage_note | default: 'This launch preview introduces the non-silver-lined version with clearly labeled catalog details only.'
+  assign hero_heading = section.settings.hero_heading | default: 'One Copper Kettle, Shown With Clear Boundaries'
+  assign hero_subheading = section.settings.hero_subheading | default: 'This preview focuses on the non-silver-lined version and catalog-listed specs while sample details are still under review.'
+  assign hero_body = section.settings.hero_body | default: 'This page is a product preview for the non-silver-lined version. Pricing, availability, and sample-verified details will only be added after review.'
+  assign hero_microcopy = section.settings.hero_microcopy | default: 'For product updates only. No reservation or purchase commitment.'
+  assign hero_primary_label = section.settings.hero_primary_label | default: 'Notify Me'
+  assign hero_primary_link = section.settings.hero_primary_link | default: '#notify-cta'
+  assign hero_secondary_label = section.settings.hero_secondary_label | default: 'See Product Details'
+  assign hero_secondary_link = section.settings.hero_secondary_link | default: '/pages/copper-kettle-preview'
+  assign hero_image_status = section.settings.hero_image_status | default: 'Reference image / placeholder'
+  assign story_heading = section.settings.story_heading | default: 'A bottle-shaped silhouette, shown as an object first.'
+  assign story_body = section.settings.story_body | default: 'The form is the first reason to slow down. It reads more like a tabletop object than a gear-first tool, which is exactly why the page keeps the framing calm and specific.'
+  assign story_body_secondary = section.settings.story_body_secondary | default: 'For now, the frontstage surface stays with what can be stated clearly: copper body, non-silver-lined version, and catalog-listed dimensions pending sample review.'
+  assign story_image_status = section.settings.story_image_status | default: 'Reference crop / silhouette'
+  assign notify_heading = section.settings.notify_heading | default: 'Stay close to the next update.'
+  assign notify_body = section.settings.notify_body | default: 'Leave your email if you want product updates when review-backed details are ready to open up. This is not a preorder or waitlist.'
+  assign notify_fineprint = section.settings.notify_fineprint | default: 'Updates only. No preorder, waitlist, or purchase commitment.'
 %}
+
+{% render 'preview-launch-theme' %}
 
 <style>
   #shopify-section-{{ section.id }} .preview-home {
-    --preview-bg: #f5efe6;
-    --preview-card: #fff9f1;
-    --preview-card-strong: #f7f0e7;
-    --preview-text: #2b211a;
-    --preview-muted: #6f6258;
-    --preview-line: #d8c7b5;
-    --preview-accent: #4d3727;
-    --preview-tag: #496b5d;
-    background:
-      radial-gradient(circle at top right, rgba(73, 107, 93, 0.10), transparent 32%),
-      linear-gradient(180deg, #f8f2ea 0%, #f5efe6 100%);
-    color: var(--preview-text);
-    padding: 40px 0 72px;
+    padding: 40px 0 82px;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__container {
-    width: min(1180px, calc(100% - 32px));
-    margin: 0 auto;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__status {
-    margin-bottom: 18px;
-    padding: 12px 16px;
-    border: 1px solid var(--preview-line);
-    background: rgba(255, 249, 241, 0.92);
-    color: var(--preview-accent);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
+  #shopify-section-{{ section.id }} .preview-home__stage,
   #shopify-section-{{ section.id }} .preview-home__hero,
-  #shopify-section-{{ section.id }} .preview-home__grid,
-  #shopify-section-{{ section.id }} .preview-home__two-col,
-  #shopify-section-{{ section.id }} .preview-home__cta {
+  #shopify-section-{{ section.id }} .preview-home__proof,
+  #shopify-section-{{ section.id }} .preview-home__story,
+  #shopify-section-{{ section.id }} .preview-home__notify,
+  #shopify-section-{{ section.id }} .preview-home__faq {
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__stage {
     display: grid;
-    gap: 24px;
+    grid-template-columns: minmax(0, 1.1fr) auto;
+    gap: 18px;
+    align-items: center;
+    padding: 20px 24px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__stage-copy {
+    display: grid;
+    gap: 14px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__stage-copy p {
+    margin: 0;
+    color: var(--lp-muted);
+    font-size: 15px;
+    line-height: 1.7;
   }
 
   #shopify-section-{{ section.id }} .preview-home__hero {
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(340px, 0.98fr);
+    gap: 24px;
     align-items: stretch;
-    margin-bottom: 24px;
   }
 
   #shopify-section-{{ section.id }} .preview-home__hero-copy,
   #shopify-section-{{ section.id }} .preview-home__hero-media,
-  #shopify-section-{{ section.id }} .preview-home__research,
-  #shopify-section-{{ section.id }} .preview-home__notify,
-  #shopify-section-{{ section.id }} .preview-home__faq,
-  #shopify-section-{{ section.id }} .preview-home__panel {
-    border: 1px solid var(--preview-line);
-    background: rgba(255, 249, 241, 0.94);
+  #shopify-section-{{ section.id }} .preview-home__specs-panel,
+  #shopify-section-{{ section.id }} .preview-home__faq-panel {
+    padding: 30px;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__hero-copy,
-  #shopify-section-{{ section.id }} .preview-home__research,
-  #shopify-section-{{ section.id }} .preview-home__notify,
-  #shopify-section-{{ section.id }} .preview-home__faq,
-  #shopify-section-{{ section.id }} .preview-home__panel {
-    padding: 28px;
+  #shopify-section-{{ section.id }} .preview-home__hero-copy {
+    display: grid;
+    gap: 18px;
+    align-content: start;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__eyebrow {
-    margin: 0 0 10px;
-    color: var(--preview-tag);
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__hero-copy h1 {
+  #shopify-section-{{ section.id }} .preview-home__hero-copy p {
     margin: 0;
-    font-size: clamp(34px, 5vw, 58px);
-    line-height: 1.02;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__subheading {
-    margin: 14px 0 0;
-    color: var(--preview-muted);
-    font-size: 18px;
-    line-height: 1.6;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__hero-copy p,
-  #shopify-section-{{ section.id }} .preview-home__panel p,
-  #shopify-section-{{ section.id }} .preview-home__research p,
-  #shopify-section-{{ section.id }} .preview-home__notify p,
-  #shopify-section-{{ section.id }} .preview-home__faq p,
-  #shopify-section-{{ section.id }} .preview-home__faq li {
-    color: var(--preview-text);
-    font-size: 16px;
-    line-height: 1.75;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 18px;
-    padding: 12px 18px;
-    background: var(--preview-accent);
-    color: #fff;
-    text-decoration: none;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__secondary {
-    margin-left: 12px;
-    color: var(--preview-accent);
-    text-decoration: none;
+  #shopify-section-{{ section.id }} .preview-home__hero-media .launch-preview__media-frame {
+    min-height: 100%;
+    height: 100%;
   }
 
   #shopify-section-{{ section.id }} .preview-home__hero-media {
-    position: relative;
-    min-height: 440px;
-    overflow: hidden;
+    min-height: 560px;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__hero-media img,
-  #shopify-section-{{ section.id }} .preview-home__artifact img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  #shopify-section-{{ section.id }} .preview-home__hero-caption {
+    margin-top: 14px;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__placeholder {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px;
-    background: linear-gradient(135deg, #efe3d4 0%, #f8f2ea 100%);
-    color: var(--preview-muted);
-    text-align: center;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__badge {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    padding: 8px 12px;
-    background: rgba(43, 33, 26, 0.82);
-    color: #fff9f1;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  #shopify-section-{{ section.id }} .preview-home__reasons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-bottom: 24px;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__card {
-    padding: 20px;
-    border: 1px solid var(--preview-line);
-    background: rgba(255, 249, 241, 0.94);
+  #shopify-section-{{ section.id }} .preview-home__proof {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 24px;
+    padding: 28px 30px;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__card h3,
-  #shopify-section-{{ section.id }} .preview-home__panel h2,
-  #shopify-section-{{ section.id }} .preview-home__research h2,
-  #shopify-section-{{ section.id }} .preview-home__notify h2,
-  #shopify-section-{{ section.id }} .preview-home__faq h2 {
-    margin: 0 0 10px;
-    line-height: 1.25;
+  #shopify-section-{{ section.id }} .preview-home__proof-copy {
+    display: grid;
+    gap: 14px;
+    align-content: start;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__card h3 {
-    font-size: 20px;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__two-col {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-bottom: 24px;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__artifact {
-    position: relative;
-    min-height: 320px;
-    border: 1px solid var(--preview-line);
-    overflow: hidden;
-    background: rgba(255, 249, 241, 0.94);
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__list {
+  #shopify-section-{{ section.id }} .preview-home__proof-copy p {
     margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__story,
+  #shopify-section-{{ section.id }} .preview-home__notify,
+  #shopify-section-{{ section.id }} .preview-home__faq {
+    display: grid;
+    gap: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__story {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: stretch;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__story-media,
+  #shopify-section-{{ section.id }} .preview-home__story-copy {
+    padding: 30px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__story-media .launch-preview__media-frame {
+    min-height: 420px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__story-copy {
+    display: grid;
+    gap: 16px;
+    align-content: start;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__story-copy p {
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__story-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__specs-panel,
+  #shopify-section-{{ section.id }} .preview-home__faq-panel {
+    display: grid;
+    gap: 18px;
+    align-content: start;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__specs-panel p,
+  #shopify-section-{{ section.id }} .preview-home__faq-panel p {
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__spec-status {
     padding-left: 18px;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__list li {
-    margin-bottom: 10px;
-    color: var(--preview-text);
+  #shopify-section-{{ section.id }} .preview-home__faq-link {
+    margin-top: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__notify {
+    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.88fr);
+    padding: 30px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__notify-copy,
+  #shopify-section-{{ section.id }} .preview-home__notify-form-wrap {
+    display: grid;
+    gap: 16px;
+    align-content: start;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__notify-copy p {
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__notify-form {
+    display: grid;
+    gap: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__notify-messages {
+    display: grid;
+    gap: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .preview-home__message {
+    margin: 0;
+    font-size: 13px;
     line-height: 1.7;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__research {
-    margin-bottom: 24px;
+  #shopify-section-{{ section.id }} .preview-home__message.is-success {
+    color: #2f6f3e;
   }
 
-  #shopify-section-{{ section.id }} .preview-home__faq-grid,
-  #shopify-section-{{ section.id }} .preview-home__cta {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__faq details {
-    padding: 14px 16px;
-    margin-bottom: 12px;
-    background: var(--preview-card-strong);
-    border: 1px solid var(--preview-line);
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__faq summary {
-    cursor: pointer;
-    font-weight: 700;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__notify form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 16px;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__notify input[type="email"] {
-    flex: 1 1 260px;
-    min-width: 0;
-    padding: 12px 14px;
-    border: 1px solid var(--preview-line);
-    background: #fff;
-    color: var(--preview-text);
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__notify button {
-    padding: 12px 18px;
-    border: 0;
-    background: var(--preview-accent);
-    color: #fff;
-    cursor: pointer;
-  }
-
-  #shopify-section-{{ section.id }} .preview-home__fineprint {
-    margin-top: 12px;
-    color: var(--preview-muted);
-    font-size: 13px;
+  #shopify-section-{{ section.id }} .preview-home__message.is-error {
+    color: #a94442;
   }
 
   @media screen and (max-width: 989px) {
+    #shopify-section-{{ section.id }} .preview-home__stage,
     #shopify-section-{{ section.id }} .preview-home__hero,
-    #shopify-section-{{ section.id }} .preview-home__grid,
-    #shopify-section-{{ section.id }} .preview-home__two-col,
-    #shopify-section-{{ section.id }} .preview-home__faq-grid,
-    #shopify-section-{{ section.id }} .preview-home__cta {
+    #shopify-section-{{ section.id }} .preview-home__proof,
+    #shopify-section-{{ section.id }} .preview-home__story,
+    #shopify-section-{{ section.id }} .preview-home__bottom,
+    #shopify-section-{{ section.id }} .preview-home__notify {
       grid-template-columns: minmax(0, 1fr);
     }
 
+    #shopify-section-{{ section.id }} .preview-home__reasons {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     #shopify-section-{{ section.id }} .preview-home__hero-media {
-      min-height: 320px;
+      min-height: 380px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .preview-home {
+      padding: 28px 0 56px;
+    }
+
+    #shopify-section-{{ section.id }} .preview-home__hero-copy,
+    #shopify-section-{{ section.id }} .preview-home__hero-media,
+    #shopify-section-{{ section.id }} .preview-home__story-media,
+    #shopify-section-{{ section.id }} .preview-home__story-copy,
+    #shopify-section-{{ section.id }} .preview-home__specs-panel,
+    #shopify-section-{{ section.id }} .preview-home__faq-panel,
+    #shopify-section-{{ section.id }} .preview-home__notify {
+      padding: 22px;
+    }
+
+    #shopify-section-{{ section.id }} .preview-home__proof,
+    #shopify-section-{{ section.id }} .preview-home__stage {
+      padding: 22px;
+    }
+
+    #shopify-section-{{ section.id }} .preview-home__reasons {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 </style>
 
-<section class="preview-home">
-  <div class="preview-home__container">
-    <div class="preview-home__status">资料预览中 · 仅开放到货通知 · 前台素材均标注资料图 / 占位图</div>
+<section class="launch-preview preview-home">
+  <div class="launch-preview__container">
+    <div class="launch-preview__surface launch-preview__surface--tight preview-home__stage">
+      <div class="preview-home__stage-copy">
+        <div class="launch-preview__chip-row">
+          <span class="launch-preview__chip launch-preview__chip--accent">Product Preview</span>
+          <span class="launch-preview__chip">Notify Only</span>
+          <span class="launch-preview__chip launch-preview__chip--sage">Sample Review Pending</span>
+        </div>
+        <p>{{ stage_note }}</p>
+      </div>
+      <a class="launch-preview__button launch-preview__button--secondary" href="/pages/preview-stage">Preview Terms</a>
+    </div>
 
     <div class="preview-home__hero">
-      <div class="preview-home__hero-copy">
-        <p class="preview-home__eyebrow">Copper Artifact Preview</p>
-        <h1>{{ hero_heading }}</h1>
-        <p class="preview-home__subheading">{{ hero_subheading }}</p>
-        <p>{{ hero_body }}</p>
-        <a class="preview-home__button" href="/pages/copper-kettle-preview#notify-interest">到货通知我</a>
-        <a class="preview-home__secondary" href="/pages/research-notes">查看研究记录</a>
+      <div class="launch-preview__surface preview-home__hero-copy">
+        <p class="launch-preview__eyebrow">Single-Product Launch Preview</p>
+        <h1 class="launch-preview__title launch-preview__title--xl">{{ hero_heading }}</h1>
+        <p class="launch-preview__lead">{{ hero_subheading }}</p>
+        <p class="launch-preview__body">{{ hero_body }}</p>
+        <div class="launch-preview__chip-row">
+          <span class="launch-preview__chip">Non-silver-lined version</span>
+          <span class="launch-preview__chip launch-preview__chip--sage">Catalog-listed specs</span>
+          <span class="launch-preview__chip launch-preview__chip--sand">Single-SKU focus</span>
+        </div>
+        <div class="launch-preview__button-row">
+          <a class="launch-preview__button" href="{{ hero_primary_link }}">{{ hero_primary_label }}</a>
+          <a class="launch-preview__button launch-preview__button--secondary" href="{{ hero_secondary_link }}">{{ hero_secondary_label }}</a>
+        </div>
+        <p class="launch-preview__fineprint">{{ hero_microcopy }}</p>
       </div>
 
-      <div class="preview-home__hero-media">
-        <span class="preview-home__badge">资料图 / 占位图 / 待实拍</span>
-        {%- if section.settings.hero_image != blank -%}
-          {{ section.settings.hero_image | image_url: width: 1400 | image_tag: alt: '紫铜水瓶手冲咖啡壶 Hero 资料图（非实拍）' }}
-        {%- else -%}
-          <div class="preview-home__placeholder">
-            <div>
-              <strong>Hero 素材待上传</strong>
-              <p style="margin:10px 0 0;">当前可先使用带显性角标的占位图或资料图，不允许伪装成实拍。</p>
+      <div class="launch-preview__surface preview-home__hero-media">
+        <div class="launch-preview__media-frame">
+          <span class="launch-preview__badge">{{ hero_image_status }}</span>
+          {%- if section.settings.hero_image != blank -%}
+            <picture>
+              {%- if section.settings.hero_image_mobile != blank -%}
+                <source media="(max-width: 749px)" srcset="{{ section.settings.hero_image_mobile | image_url: width: 960 }}">
+              {%- endif -%}
+              {{ section.settings.hero_image | image_url: width: 1600 | image_tag: alt: 'Copper pour-over kettle hero reference image', loading: 'lazy' }}
+            </picture>
+          {%- else -%}
+            <div class="launch-preview__placeholder">
+              <div>
+                <strong>Hero image slot is ready.</strong>
+                <p style="margin: 10px 0 0;">Upload separate desktop and mobile crops when they are available. Until then, keep the image explicitly labeled as reference or placeholder.</p>
+              </div>
             </div>
-          </div>
+          {%- endif -%}
+        </div>
+        <p class="launch-preview__fineprint preview-home__hero-caption">Reference imagery stays labeled on every viewport. No unlabeled lifestyle image should be used before review-backed photography is ready.</p>
+      </div>
+    </div>
+
+    <div class="launch-preview__card-grid preview-home__reasons">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'reason' -%}
+          <article class="launch-preview__card" {{ block.shopify_attributes }}>
+            <p class="launch-preview__eyebrow">Reason {{ forloop.index }}</p>
+            <h3>{{ block.settings.title }}</h3>
+            <p class="launch-preview__body">{{ block.settings.copy }}</p>
+          </article>
         {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="launch-preview__surface preview-home__proof">
+      <div class="preview-home__proof-copy">
+        <p class="launch-preview__eyebrow">Proof Strip</p>
+        <h2 class="launch-preview__title launch-preview__title--md">Shown with clear boundaries.</h2>
+        <p class="launch-preview__lead">This preview leads with the object, then the evidence, and only then the update sign-up.</p>
+      </div>
+      <div class="launch-preview__chip-row">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'proof' -%}
+            {%- assign proof_tone = block.settings.tone | default: 'default' -%}
+            <span class="launch-preview__chip{% if proof_tone == 'sage' %} launch-preview__chip--sage{% elsif proof_tone == 'accent' %} launch-preview__chip--accent{% elsif proof_tone == 'sand' %} launch-preview__chip--sand{% endif %}" {{ block.shopify_attributes }}>
+              {{ block.settings.label }}
+            </span>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
     </div>
 
-    <div class="preview-home__grid">
-      <div class="preview-home__card">
-        <h3>紫铜壶体</h3>
-        <p>壶体材质为紫铜，当前锁定非银内壁版本。</p>
-      </div>
-      <div class="preview-home__card">
-        <h3>水瓶型轮廓</h3>
-        <p>现阶段只说明器型识别、铜器视觉和咖啡角陈列感，不提前承诺性能表现。</p>
-      </div>
-      <div class="preview-home__card">
-        <h3>图册规格待复核</h3>
-        <p>容量 500 cc、口径 5 cm、底径 6.1 cm、高度 15.6 cm，均为资料显示 / 待样品复核。</p>
-      </div>
-      <div class="preview-home__card">
-        <h3>单一 SKU</h3>
-        <p>当前只围绕这一款推进，不扩容量选择、把手版本或系列导购。</p>
-      </div>
-    </div>
-
-    <div class="preview-home__two-col">
-      <div class="preview-home__artifact">
-        <span class="preview-home__badge">轮廓示意 / 资料图</span>
-        {%- if section.settings.artifact_image != blank -%}
-          {{ section.settings.artifact_image | image_url: width: 1200 | image_tag: alt: '紫铜水瓶手冲咖啡壶 资料图（非实拍）' }}
-        {%- else -%}
-          <div class="preview-home__placeholder">
-            <div>
-              <strong>器型资料图待挂载</strong>
-              <p style="margin:10px 0 0;">可先用图册裁切、轮廓示意或安全占位图，不阻塞前台挂载。</p>
+    <div class="preview-home__story">
+      <div class="launch-preview__surface preview-home__story-media">
+        <div class="launch-preview__media-frame">
+          <span class="launch-preview__badge">{{ story_image_status }}</span>
+          {%- if section.settings.artifact_image != blank -%}
+            {{ section.settings.artifact_image | image_url: width: 1400 | image_tag: alt: 'Copper pour-over kettle reference crop', loading: 'lazy' }}
+          {%- else -%}
+            <div class="launch-preview__placeholder">
+              <div>
+                <strong>Story image slot is ready.</strong>
+                <p style="margin: 10px 0 0;">Use a silhouette crop, a catalog detail, or a clearly labeled reference image. Avoid polished faux-final imagery.</p>
+              </div>
             </div>
-          </div>
-        {%- endif -%}
+          {%- endif -%}
+        </div>
       </div>
 
-      <div class="preview-home__panel">
-        <p class="preview-home__eyebrow">器型与材质说明</p>
-        <h2>先解释资料边界，再展示商品</h2>
-        <p>当前页面只公开已知资料：紫铜壶体、非银内壁版本、水瓶型轮廓，以及图册中的基础规格。真实色泽、上手比例、做工细节和使用体验都要等样品复核后再补。</p>
-        <p>本阶段不把资料图写成实拍，不把资料字段写成实测，不把到货通知包装成预订或候补。</p>
-      </div>
-    </div>
-
-    <div class="preview-home__research">
-      <p class="preview-home__eyebrow">Research Notes</p>
-      <h2>为什么现在只开放到货通知</h2>
-      <p>研究记录页集中解释当前已知资料、待样品复核字段、禁写红线，以及为什么这一轮只做 preview-only + notify-only，而不提前开放正式购买。</p>
-      <a class="preview-home__button" href="/pages/research-notes">查看研究记录</a>
-      <a class="preview-home__secondary" href="/pages/preview-stage">查看当前阶段说明</a>
-    </div>
-
-    <div class="preview-home__two-col">
-      <div class="preview-home__panel">
-        <p class="preview-home__eyebrow">已知资料</p>
-        <ul class="preview-home__list">
-          <li>紫铜壶体，非银内壁版本。</li>
-          <li>水瓶型轮廓，当前只说明器型识别与低承诺场景。</li>
-          <li>图册显示容量 500 cc、口径 5 cm、底径 6.1 cm、高度 15.6 cm。</li>
-          <li>到货通知是当前唯一允许的转化动作。</li>
-        </ul>
-      </div>
-      <div class="preview-home__panel">
-        <p class="preview-home__eyebrow">待样品复核后补充</p>
-        <ul class="preview-home__list">
-          <li>实拍图、真实色泽和上手比例。</li>
-          <li>规格复核结果、材质细节和做工观察。</li>
-          <li>价格、库存、交期和正式购买路径。</li>
-          <li>评论、推荐商品、多 SKU 或正式销售页模块。</li>
-        </ul>
+      <div class="launch-preview__surface preview-home__story-copy">
+        <p class="launch-preview__eyebrow">Object Story</p>
+        <h2 class="launch-preview__title launch-preview__title--md">{{ story_heading }}</h2>
+        <p class="launch-preview__body">{{ story_body }}</p>
+        <p class="launch-preview__body">{{ story_body_secondary }}</p>
+        <div class="preview-home__story-links">
+          <a href="/pages/copper-kettle-preview">Read the full product details</a>
+          <a href="/pages/faq">See the current FAQ</a>
+        </div>
       </div>
     </div>
 
-    <div class="preview-home__faq-grid">
-      <div class="preview-home__faq">
-        <p class="preview-home__eyebrow">FAQ</p>
-        <h2>先把误解拦在首页</h2>
-        <details>
-          <summary>现在可以直接买吗？</summary>
-          <p>不能。当前阶段只开放到货通知，不开放正式下单；这不是购买页。</p>
-        </details>
-        <details>
-          <summary>可以先预订、预约或候补吗？</summary>
-          <p>不能。当前不做预订、预约或候补，也不会因为先提交邮箱而获得排队或优先购买资格。</p>
-        </details>
-        <details>
-          <summary>这是银内壁款吗？</summary>
-          <p>不是。当前锁定的是非银内壁版本，不会使用银内壁、镀银内壁或 999 银内壁卖点。</p>
-        </details>
-        <details>
-          <summary>规格已经确定了吗？</summary>
-          <p>图册资料显示容量 500 cc、口径 5 cm、底径 6.1 cm、高度 15.6 cm，正式发布前仍需样品复核。</p>
-        </details>
-        <a class="preview-home__secondary" href="/pages/faq" style="margin-left:0;">查看完整 FAQ</a>
+    <div class="preview-home__bottom">
+      <section class="launch-preview__surface preview-home__specs-panel">
+        <p class="launch-preview__eyebrow">Specs Snapshot</p>
+        <h2 class="launch-preview__title launch-preview__title--md">The fields that can be shown now.</h2>
+        <p class="launch-preview__lead">Every line stays labeled, so catalog information is not mistaken for sample-verified detail.</p>
+        <table class="launch-preview__table">
+          <tbody>
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'spec' -%}
+                <tr {{ block.shopify_attributes }}>
+                  <th>{{ block.settings.label }}</th>
+                  <td>{{ block.settings.value }}</td>
+                  <td class="preview-home__spec-status">
+                    <span class="launch-preview__chip launch-preview__chip--sage">{{ block.settings.status }}</span>
+                  </td>
+                </tr>
+              {%- endif -%}
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </section>
+
+      <section class="launch-preview__surface preview-home__faq-panel launch-preview__faq">
+        <p class="launch-preview__eyebrow">FAQ Snapshot</p>
+        <h2 class="launch-preview__title launch-preview__title--md">Questions the page should answer early.</h2>
+        <p class="launch-preview__lead">The goal is clarity, not sales pressure.</p>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'faq' -%}
+            <details {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.question }}</summary>
+              <p>{{ block.settings.answer }}</p>
+            </details>
+          {%- endif -%}
+        {%- endfor -%}
+        <p class="preview-home__faq-link"><a href="/pages/faq">View the full FAQ</a></p>
+      </section>
+    </div>
+
+    <div class="launch-preview__surface preview-home__notify" id="notify-cta">
+      <div class="preview-home__notify-copy">
+        <p class="launch-preview__eyebrow">Notify CTA</p>
+        <h2 class="launch-preview__title launch-preview__title--md">{{ notify_heading }}</h2>
+        <p class="launch-preview__lead">{{ notify_body }}</p>
+        <div class="launch-preview__chip-row">
+          <span class="launch-preview__chip launch-preview__chip--accent">Updates Only</span>
+          <span class="launch-preview__chip">No Preorder</span>
+          <span class="launch-preview__chip">No Waitlist</span>
+        </div>
       </div>
 
-      <div class="preview-home__notify" id="notify-cta">
-        <p class="preview-home__eyebrow">Notify Only</p>
-        <h2>留下邮箱，接收后续公开更新</h2>
-        <p>邮箱仅用于这款产品的到货通知和相关公开更新。这不是购买页提交，不代表预订、候补或购买资格。</p>
-        {%- form 'customer' -%}
+      <div class="preview-home__notify-form-wrap">
+        {%- form 'customer', class: 'preview-home__notify-form' -%}
           <input type="hidden" name="contact[tags]" value="{{ notify_tag }}">
-          <input type="email" name="contact[email]" placeholder="输入邮箱，接收这款的到货通知" required>
-          <button type="submit">到货通知我</button>
-          {%- if form.posted_successfully? -%}
-            <p class="preview-home__fineprint" style="color:#2f6f3e;">提交成功。后续如这款产品有公开更新，我们会通过邮箱通知你；这次提交不代表预订或候补资格。</p>
-          {%- endif -%}
-          {%- if form.errors -%}
-            <p class="preview-home__fineprint" style="color:#a94442;">请填写有效邮箱后再提交。</p>
-          {%- endif -%}
+          <div class="launch-preview__form-row">
+            <input class="launch-preview__input" type="email" name="contact[email]" placeholder="Email for product updates" required>
+            <button type="submit" class="launch-preview__button">Notify Me</button>
+          </div>
+          <p class="launch-preview__fineprint">{{ notify_fineprint }}</p>
+          <div class="preview-home__notify-messages">
+            {%- if form.posted_successfully? -%}
+              <p class="preview-home__message is-success">You are signed up for product updates. This does not create a reservation or purchase commitment.</p>
+            {%- endif -%}
+            {%- if form.errors -%}
+              <p class="preview-home__message is-error">Please enter a valid email address before submitting the form.</p>
+            {%- endif -%}
+          </div>
         {%- endform -%}
-        <p class="preview-home__fineprint">当前阶段说明：这不是购买页，不开售，也不开放预订或候补。</p>
       </div>
     </div>
   </div>
@@ -423,37 +455,273 @@
   "name": "Preview Homepage",
   "settings": [
     {
-      "type": "text",
-      "id": "hero_heading",
-      "label": "Hero 标题",
-      "default": "紫铜水瓶手冲咖啡壶"
+      "type": "textarea",
+      "id": "stage_note",
+      "label": "Stage note",
+      "default": "This launch preview introduces the non-silver-lined version with clearly labeled catalog details only."
     },
     {
       "type": "text",
+      "id": "hero_heading",
+      "label": "Hero heading",
+      "default": "One Copper Kettle, Shown With Clear Boundaries"
+    },
+    {
+      "type": "textarea",
       "id": "hero_subheading",
-      "label": "Hero 副标题",
-      "default": "非银内壁版本 · 资料预览阶段"
+      "label": "Hero subheading",
+      "default": "This preview focuses on the non-silver-lined version and catalog-listed specs while sample details are still under review."
     },
     {
       "type": "textarea",
       "id": "hero_body",
-      "label": "Hero 说明",
-      "default": "当前页面仅用于资料预览和到货通知，不开放正式下单。后续如有公开更新，会通过页面或邮件同步。"
+      "label": "Hero body",
+      "default": "This page is a product preview for the non-silver-lined version. Pricing, availability, and sample-verified details will only be added after review."
+    },
+    {
+      "type": "text",
+      "id": "hero_microcopy",
+      "label": "Hero microcopy",
+      "default": "For product updates only. No reservation or purchase commitment."
+    },
+    {
+      "type": "text",
+      "id": "hero_primary_label",
+      "label": "Primary button label",
+      "default": "Notify Me"
+    },
+    {
+      "type": "url",
+      "id": "hero_primary_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "hero_secondary_label",
+      "label": "Secondary button label",
+      "default": "See Product Details"
+    },
+    {
+      "type": "url",
+      "id": "hero_secondary_link",
+      "label": "Secondary button link"
     },
     {
       "type": "image_picker",
       "id": "hero_image",
-      "label": "Hero 图片"
+      "label": "Hero image (desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image_mobile",
+      "label": "Hero image (mobile)"
+    },
+    {
+      "type": "text",
+      "id": "hero_image_status",
+      "label": "Hero image status badge",
+      "default": "Reference image / placeholder"
+    },
+    {
+      "type": "text",
+      "id": "story_heading",
+      "label": "Story heading",
+      "default": "A bottle-shaped silhouette, shown as an object first."
+    },
+    {
+      "type": "textarea",
+      "id": "story_body",
+      "label": "Story body",
+      "default": "The form is the first reason to slow down. It reads more like a tabletop object than a gear-first tool, which is exactly why the page keeps the framing calm and specific."
+    },
+    {
+      "type": "textarea",
+      "id": "story_body_secondary",
+      "label": "Story body secondary",
+      "default": "For now, the frontstage surface stays with what can be stated clearly: copper body, non-silver-lined version, and catalog-listed dimensions pending sample review."
     },
     {
       "type": "image_picker",
       "id": "artifact_image",
-      "label": "器型 / 资料图片"
+      "label": "Story image"
+    },
+    {
+      "type": "text",
+      "id": "story_image_status",
+      "label": "Story image status badge",
+      "default": "Reference crop / silhouette"
+    },
+    {
+      "type": "text",
+      "id": "notify_heading",
+      "label": "Notify heading",
+      "default": "Stay close to the next update."
+    },
+    {
+      "type": "textarea",
+      "id": "notify_body",
+      "label": "Notify body",
+      "default": "Leave your email if you want product updates when review-backed details are ready to open up. This is not a preorder or waitlist."
+    },
+    {
+      "type": "text",
+      "id": "notify_fineprint",
+      "label": "Notify fineprint",
+      "default": "Updates only. No preorder, waitlist, or purchase commitment."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "Reason card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Bottle-shaped silhouette"
+        },
+        {
+          "type": "textarea",
+          "id": "copy",
+          "label": "Copy",
+          "default": "The form gives the kettle an object-like presence before any performance claim enters the page."
+        }
+      ]
+    },
+    {
+      "type": "proof",
+      "name": "Proof chip",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Catalog-listed specs"
+        },
+        {
+          "type": "select",
+          "id": "tone",
+          "label": "Tone",
+          "default": "default",
+          "options": [
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "sage",
+              "label": "Sage"
+            },
+            {
+              "value": "sand",
+              "label": "Sand"
+            },
+            {
+              "value": "accent",
+              "label": "Accent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "spec",
+      "name": "Spec row",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Capacity"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "500 cc"
+        },
+        {
+          "type": "text",
+          "id": "status",
+          "label": "Status",
+          "default": "Catalog-listed"
+        }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Can I buy it now?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "No. This preview is notify-only for now, so pricing and checkout are not live."
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "Preview Homepage"
+      "name": "Preview Homepage",
+      "blocks": [
+        {
+          "type": "reason"
+        },
+        {
+          "type": "reason"
+        },
+        {
+          "type": "reason"
+        },
+        {
+          "type": "proof"
+        },
+        {
+          "type": "proof"
+        },
+        {
+          "type": "proof"
+        },
+        {
+          "type": "proof"
+        },
+        {
+          "type": "spec"
+        },
+        {
+          "type": "spec"
+        },
+        {
+          "type": "spec"
+        },
+        {
+          "type": "spec"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        }
+      ]
     }
   ]
 }
